@@ -6,11 +6,11 @@
       mode = "no-cursor";
     };
     theme = "Rosé Pine";
-    font = {
-      name = "MonoLisa";
-      size = 13;
-      package = pkgs.monolisa-script;
-    };
+#    font = {
+#      name = "MonoLisa";
+#      size = 13;
+#      package = pkgs.monolisa-script;
+#    };
     # https://www.monolisa.dev/faq#how-to-enable-stylistic-sets-for-the-kitty-terminal
     extraConfig = ''
       font_features MonoLisa -calt +liga +zero +ss01 +ss02 +ss07 +ss08 +ss10 +ss11 +ss18

@@ -720,22 +720,6 @@
         "type": "github"
       }
     },
-    "monolisa-script": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1709742524,
-        "narHash": "sha256-mkw+WhtLw7498iNI4jTdeTq2eteJsfgxN0o8hs0q2l8=",
-        "owner": "redyf",
-        "repo": "test2",
-        "rev": "c234fad704153e0244f160e1e293f35c4b2ff26e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "redyf",
-        "repo": "test2",
-        "type": "github"
-      }
-    },
     "naersk": {
       "inputs": {
         "nixpkgs": "nixpkgs_5"
@@ -1182,7 +1166,6 @@
         "home-manager": "home-manager_2",
         "hyprland": "hyprland",
         "manix": "manix",
-        "monolisa-script": "monolisa-script",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nix-colors": "nix-colors",
         "nix-ld-rs": "nix-ld-rs",
