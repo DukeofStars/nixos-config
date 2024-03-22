@@ -9,7 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-  
+ 
   # Enable experimental features
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -54,6 +54,13 @@
   services.xserver = {
     layout = "au";
     xkbVariant = "";
+  };
+
+  # Mouse Settings
+  services.xserver.libinput.mouse = {
+    accelSpeed = "0";
+    # flat: accelerate at a constant speed. adaptive: pointer acceleration depends on input speed.
+    accelProfile = "flat";
   };
 
   # Enable CUPS to print documents.
