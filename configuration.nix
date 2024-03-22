@@ -10,6 +10,13 @@
       ./hardware-configuration.nix
     ];
 
+  # Use Hyprland Cachix.
+  # Hyprland is not on cache.nixos.org, so use an external cache instead.
+  nix.settings = {
+    substituters = ["https://hyprland.cachix.org"];
+    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+  };
+
   # Set up OpenGL
   hardware.opengl = {
     enable = true;
