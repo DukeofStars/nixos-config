@@ -9,6 +9,27 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
+
+  # Set up OpenGL
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+  # Load nvidia driver for Xorg and Wayland.
+  services.xserver.videoDrivers = ["nvidia"];
+  # Enable nvidia drivers.
+  hardware.nvidia = {
+    modesetting.enable = true;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+  hardware.nvidia.prime = {
+    sync.enable = true;
+
+    intelBusId = "PCI:0:2:0";
+    nvidiaBusId = "PCI:1:0:0";
+  };
  
   # Enable experimental features
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -51,9 +72,9 @@
   services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "au";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Mouse Settings
