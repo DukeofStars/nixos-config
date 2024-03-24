@@ -17,8 +17,19 @@
   home.stateVersion = "23.11";
 
   home.packages = with pkgs; [
-    kate
+    # Obviously.
     home-manager
+
+    # Text editor
+    kate
+
+    # Discord, with OpenAsar
+    (discord.override {
+      withOpenASAR = true;
+    })
+
+    # Better git client
+    jujutsu
   ];
 
   programs = {
