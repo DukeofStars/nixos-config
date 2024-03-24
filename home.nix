@@ -28,8 +28,17 @@
         "HDMI-A-1,1920x1080@60,0x0,1"
       ];
       workspace = [
+        # Primary monitor
+        "1, default:true, monitor:HDMI-A-1"
+        "2, default:true, monitor:HDMI-A-1"
+        "3, default:true, monitor:HDMI-A-1"
+        "4, default:true, monitor:HDMI-A-1"
+        "5, default:true, monitor:HDMI-A-1"
+        "6, default:true, monitor:HDMI-A-1"
+        # Second monitor
         "9, default:true, monitor:eDP-1, on-created-empty:[float] discord"
-        "8, default:true, monitor:eDP-1, on-created-empty:[float] firefox"
+        "8, monitor:eDP-1, on-created-empty:[float] firefox"
+        "7, default:true, monitor:eDP-1"
       ];
       env = [
         "LIBVA_DRIVER_NAME,nvidia"
