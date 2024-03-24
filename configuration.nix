@@ -86,17 +86,16 @@
 #   };
 
   # Setup Hyprland and GDM login manager.
-  programs.hyprland.enable = true;
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.gdm.wayland = true;
 
   # Mouse Settings
-#   services.xserver.libinput.mouse = {
-#     accelSpeed = "0";
-#     # flat: accelerate at a constant speed. adaptive: pointer acceleration depends on input speed.
-#     accelProfile = "flat";
-#   };
+   services.xserver.libinput.mouse = {
+     accelSpeed = "0";
+     # flat: accelerate at a constant speed. adaptive: pointer acceleration depends on input speed.
+     accelProfile = "flat";
+   };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

@@ -19,8 +19,25 @@
   # Hyprland
   wayland.windowManager.hyprland = {
     enable = true;
+    xwayland.enable = true;
+    systemd.enable = true;
     settings = {
       "$mod" = "SUPER";
+      monitor = [
+        "eDP-1,1920x1080@144,1920x0,1"
+        "HDMI-A-1,1920x1080@60,0x0,1"
+      ];
+      workspace = [
+        "9, default:true, monitor:eDP-1, on-created-empty:[float] discord"
+        "8, default:true, monitor:eDP-1, on-created-empty:[float] firefox"
+      ];
+      env = [
+        "LIBVA_DRIVER_NAME,nvidia"
+        "XDG_SESSION_TYPE,wayland"
+        "GBM_BACKEND,nvidia-drm"
+        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+        "WLR_NO_HARDWARE_CURSORS,1"
+      ];
       bind =
         [
           "$mod, F, exec, firefox"
