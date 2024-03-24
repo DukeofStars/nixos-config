@@ -27,9 +27,14 @@
     (discord.override {
       withOpenASAR = true;
     })
+    # For screensharing.
+    vesktop
 
     # Better git client
     jujutsu
+
+    # Of course.
+    neofetch
   ];
 
   programs = {
