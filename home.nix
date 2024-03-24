@@ -41,4 +41,13 @@
     home-manager.enable = true;
     firefox.enable = true;
   };
+
+  home.file.".config/jj/config.toml".text = ''
+[ui]
+paginate = "never"
+
+[user]
+name = "Tristan Fox"
+email = "foxtristan@proton.me"
+'';
 }
