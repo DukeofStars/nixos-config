@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
-{
+let
+  primary_monitor = "HDMI-A-1";
+  secondary_monitor = "eDP-1";
+in {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "foxtristan";
@@ -29,16 +32,16 @@
       ];
       workspace = [
         # Primary monitor
-        "1, default:true, monitor:HDMI-A-1"
-        "2, default:true, monitor:HDMI-A-1"
-        "3, default:true, monitor:HDMI-A-1"
-        "4, default:true, monitor:HDMI-A-1"
-        "5, default:true, monitor:HDMI-A-1"
-        "6, default:true, monitor:HDMI-A-1"
+        "1, default:true, monitor:${primary_monitor}"
+        "2, default:true, monitor:${primary_monitor}"
+        "3, default:true, monitor:${primary_monitor}"
+        "4, default:true, monitor:${primary_monitor}"
+        "5, default:true, monitor:${primary_monitor}"
+        "6, default:true, monitor:${primary_monitor}"
         # Second monitor
-        "9, default:true, monitor:eDP-1, on-created-empty:[float] discord"
-        "8, monitor:eDP-1, on-created-empty:[float] firefox"
-        "7, default:true, monitor:eDP-1"
+        "9, default:true, monitor:${secondary_monitor}, on-created-empty:[float] discord"
+        "8, monitor:${secondary_monitor}, on-created-empty:[float] firefox"
+        "7, default:true, monitor:${secondary_monitor}"
       ];
       env = [
         "LIBVA_DRIVER_NAME,nvidia"
