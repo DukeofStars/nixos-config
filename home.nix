@@ -26,6 +26,9 @@ in {
     systemd.enable = true;
     settings = {
       "$mod" = "SUPER";
+      input = {
+          touchpad.natural_scroll = true;
+      };
       monitor = [
         "eDP-1,1920x1080@144,1920x0,1"
         "HDMI-A-1,1920x1080@60,0x0,1"
@@ -33,15 +36,15 @@ in {
       workspace = [
         # Primary monitor
         "1, default:true, monitor:${primary_monitor}"
-        "2, default:true, monitor:${primary_monitor}"
-        "3, default:true, monitor:${primary_monitor}"
-        "4, default:true, monitor:${primary_monitor}"
-        "5, default:true, monitor:${primary_monitor}"
-        "6, default:true, monitor:${primary_monitor}"
+        "2, monitor:${primary_monitor}"
+        "3, monitor:${primary_monitor}"
+        "4, monitor:${primary_monitor}"
+        "5, monitor:${primary_monitor}"
+        "6, monitor:${primary_monitor}"
         # Second monitor
-        "9, default:true, monitor:${secondary_monitor}, on-created-empty:[float] discord"
+        "9, monitor:${secondary_monitor}, on-created-empty:[float] discord"
         "8, monitor:${secondary_monitor}, on-created-empty:[float] firefox"
-        "7, default:true, monitor:${secondary_monitor}"
+        "7, monitor:${secondary_monitor}"
       ];
       env = [
         "LIBVA_DRIVER_NAME,nvidia"
@@ -108,6 +111,7 @@ in {
     firefox.enable = true;
     alacritty.enable = true;
     rofi.enable = true;
+    neovim.enable = true;
   };
 
   home.file.".config/jj/config.toml".text = ''
