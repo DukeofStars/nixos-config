@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -75,22 +75,28 @@
   };
 
   # Enable KDE Plasma5 desktop environment.
-  services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+#   services.xserver.enable = true;
+#   services.xserver.displayManager.sddm.enable = true;
+  #services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "au";
-    variant = "";
-  };
+#   services.xserver.xkb = {
+#     layout = "au";
+#     variant = "";
+#   };
+
+  # Setup Hyprland and GDM login manager.
+  programs.hyprland.enable = true;
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.gdm.wayland = true;
 
   # Mouse Settings
-  services.xserver.libinput.mouse = {
-    accelSpeed = "0";
-    # flat: accelerate at a constant speed. adaptive: pointer acceleration depends on input speed.
-    accelProfile = "flat";
-  };
+#   services.xserver.libinput.mouse = {
+#     accelSpeed = "0";
+#     # flat: accelerate at a constant speed. adaptive: pointer acceleration depends on input speed.
+#     accelProfile = "flat";
+#   };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -135,6 +141,9 @@
   environment.systemPackages = with pkgs; [
 	git
 	nano
+	networkmanagerapplet
+	rofi
+	hyprland
   ];
 
   myconfig.steam.enable = true;

@@ -16,6 +16,37 @@
   # changes in each release.
   home.stateVersion = "23.11";
 
+  # Hyprland
+  wayland.windowManager.hyprland = {
+    enable = true;
+    settings = {
+      "$mod" = "SUPER";
+      bind =
+        [
+          "$mod, F, exec, firefox"
+          "$mod, K, exec, alacritty"
+          "ALT, SPACE, exec, rofi -show run"
+          ", Print, exec, grimblast copy area"
+        ]
+        ++ (
+          # workspaces
+          # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
+          builtins.concatLists (builtins.genList (
+              x: let
+                ws = let
+                  c = (x + 1) / 10;
+                in
+                  builtins.toString (x + 1 - (c * 10));
+              in [
+                "$mod, ${ws}, workspace, ${toString (x + 1)}"
+                "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+              ]
+            )
+            10)
+        );
+      };
+  };
+
   home.packages = with pkgs; [
     # Obviously.
     home-manager
@@ -35,11 +66,19 @@
 
     # Of course.
     neofetch
+
+    # I think this is a screenshot tool.
+    grimblast
+
+    # Alacritty terminal
+    alacritty
   ];
 
   programs = {
     home-manager.enable = true;
     firefox.enable = true;
+    alacritty.enable = true;
+    rofi.enable = true;
   };
 
   home.file.".config/jj/config.toml".text = ''
