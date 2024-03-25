@@ -24,6 +24,7 @@ in {
     gtk.enable = true;
     x11.enable = true;
     name = "Bibata-Modern-Classic";
+    size = 32;
     package = pkgs.bibata-cursors;
   };
 
@@ -43,6 +44,9 @@ in {
       monitor = [
         "eDP-1,1920x1080@144,1920x0,1"
         "HDMI-A-1,1920x1080@60,0x0,1"
+      ];
+      exec-once = [
+        "hyprctl setcursor Bibata-Modern-Classic 32"
       ];
       workspace = [
         # Primary monitor
