@@ -115,6 +115,9 @@ in {
 
     # Alacritty terminal
     alacritty
+
+    # Thunar File Manager.
+    xfce.thunar
   ];
 
   programs = {
