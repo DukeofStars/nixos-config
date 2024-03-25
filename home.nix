@@ -19,12 +19,23 @@ in {
   # changes in each release.
   home.stateVersion = "23.11";
 
+  # Cursor
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    name = "Bibata-Modern-Classic";
+    package = pkgs.bibata-cursors;
+  };
+
   # Hyprland
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
     settings = {
+      decoration = {
+        rounding = 6;
+      };
       "$mod" = "SUPER";
       input = {
           touchpad.natural_scroll = true;
