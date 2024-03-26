@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, lib, ... }:
 
 {
   imports =
@@ -75,21 +75,13 @@
     LC_TIME = "en_AU.UTF-8";
   };
 
-  # Enable KDE Plasma5 desktop environment.
-#   services.xserver.enable = true;
-#   services.xserver.displayManager.sddm.enable = true;
-  #services.xserver.desktopManager.plasma5.enable = true;
-
-  # Configure keymap in X11
-#   services.xserver.xkb = {
-#     layout = "au";
-#     variant = "";
-#   };
-
-  # Setup Hyprland and GDM login manager.
   services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.gdm.wayland = true;
+
+  services.xserver.displayManager.sddm = {
+    enable = true;
+    theme = "plasma";
+  };
+  programs.hyprland.enable = true;
 
   # Mouse Settings
    services.xserver.libinput.mouse = {
@@ -143,7 +135,6 @@
 	nano
 	networkmanagerapplet
 	rofi
-	hyprland
   ];
 
   myconfig.steam.enable = true;
