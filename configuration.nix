@@ -19,25 +19,25 @@
   };
 
   # Set up OpenGL
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
+#   hardware.opengl = {
+#     enable = true;
+#     driSupport = true;
+#     driSupport32Bit = true;
+#   };
   # Load nvidia driver for Xorg and Wayland.
-  services.xserver.videoDrivers = ["nvidia"];
+#   services.xserver.videoDrivers = ["nvidia"];
   # Enable nvidia drivers.
-  hardware.nvidia = {
-    modesetting.enable = true;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
-  hardware.nvidia.prime = {
-    sync.enable = true;
-
-    intelBusId = "PCI:0:2:0";
-    nvidiaBusId = "PCI:1:0:0";
-  };
+#   hardware.nvidia = {
+#     modesetting.enable = true;
+#     nvidiaSettings = true;
+#     package = config.boot.kernelPackages.nvidiaPackages.stable;
+#   };
+#   hardware.nvidia.prime = {
+#     sync.enable = true;
+#
+#     intelBusId = "PCI:0:2:0";
+#     nvidiaBusId = "PCI:1:0:0";
+#   };
  
   # Enable experimental features
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -75,20 +75,22 @@
     LC_TIME = "en_AU.UTF-8";
   };
 
+
+
   services.xserver.enable = true;
 
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
   services.xserver.displayManager.sddm = {
     enable = true;
-    theme = "plasma";
   };
   programs.hyprland.enable = true;
 
   # Mouse Settings
-   services.xserver.libinput.mouse = {
-     accelSpeed = "0";
-     # flat: accelerate at a constant speed. adaptive: pointer acceleration depends on input speed.
-     accelProfile = "flat";
-   };
+  services.xserver.libinput.mouse = {
+    accelSpeed = "0";
+    # flat: accelerate at a constant speed. adaptive: pointer acceleration depends on input speed.
+    accelProfile = "flat";
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

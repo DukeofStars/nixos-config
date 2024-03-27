@@ -24,11 +24,14 @@ in {
     gtk.enable = true;
     x11.enable = true;
     name = "Bibata-Modern-Classic";
-    size = 32;
+    size = 24;
     package = pkgs.bibata-cursors;
   };
 
   # Hyprland
+  home.sessionVariables = {
+    XCURSOR_SIZE = 24;
+  };
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -45,9 +48,6 @@ in {
         "eDP-1,1920x1080@144,1920x0,1"
         "HDMI-A-1,1920x1080@60,0x0,1"
       ];
-      exec-once = [
-        "hyprctl setcursor Bibata-Modern-Classic 32"
-      ];
       workspace = [
         # Primary monitor
         "1, default:true, monitor:${primary_monitor}"
@@ -62,6 +62,7 @@ in {
         "7, monitor:${secondary_monitor}"
       ];
       env = [
+        "XCURSOR_SIZE=24"
         "LIBVA_DRIVER_NAME,nvidia"
         "XDG_SESSION_TYPE,wayland"
         "GBM_BACKEND,nvidia-drm"
