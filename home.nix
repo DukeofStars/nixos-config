@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 let
+  wallpaper = "sakuratree.png";
   primary_monitor = "HDMI-A-1";
   secondary_monitor = "eDP-1";
 in {
@@ -32,11 +33,21 @@ in {
   home.sessionVariables = {
     XCURSOR_SIZE = 24;
   };
+  home.file.".config/hypr/hyprpaper.conf".text = ''
+  preload=~/Pictures/${wallpaper}
+  wallpaper=${primary_monitor},~/Pictures/${wallpaper}
+  wallpaper=${secondary_monitor},~/Pictures/${wallpaper}
+  splash=false
+  '';
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
     settings = {
+      exec-once = [
+        # Start hyprpaper (wallpaper utility)
+        "hyprpaper"
+      ];
       decoration = {
         rounding = 6;
       };
@@ -60,14 +71,6 @@ in {
         "9, monitor:${secondary_monitor}, on-created-empty:[float] discord"
         "8, monitor:${secondary_monitor}, on-created-empty:[float] firefox"
         "7, monitor:${secondary_monitor}"
-      ];
-      env = [
-        "XCURSOR_SIZE=24"
-        "LIBVA_DRIVER_NAME,nvidia"
-        "XDG_SESSION_TYPE,wayland"
-        "GBM_BACKEND,nvidia-drm"
-        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-        "WLR_NO_HARDWARE_CURSORS,1"
       ];
       bind =
         [
@@ -121,9 +124,41 @@ in {
     # Alacritty terminal
     alacritty
 
-    # Thunar File Manager.
-    xfce.thunar
+    # For managing wallpapers
+    hyprpaper
+
+    # For viewing images.
+    gwenview
   ];
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "image/png" = [
+        "gwenview.desktop"
+      ];
+      "image/jpeg" = [
+        "gwenview.desktop"
+      ];
+      "inode/directory" = [
+        "nautilus.desktop"
+      ];
+    };
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Catppuccin-Mocha-Standard-Blue-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        variant = "mocha";
+      };
+    };
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-folders;
+    };
+  };
 
   programs = {
     home-manager.enable = true;

@@ -75,13 +75,25 @@
     LC_TIME = "en_AU.UTF-8";
   };
 
-
-
   services.xserver.enable = true;
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment = {
+    variables = {
+      XCURSOR_SIZE="24";
+      LIBVA_DRIVER_NAME="nvidia";
+      XDG_SESSION_TYPE="wayland";
+      GBM_BACKEND="nvidia-drm";
+      __GLX_VENDOR_LIBRARY_NAME="nvidia";
+      WLR_NO_HARDWARE_CURSORS="1";
+    };
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+    };
+  };
+
   services.xserver.displayManager.sddm = {
     enable = true;
+    theme = "sddm-catppuccin-mocha-theme";
   };
   programs.hyprland.enable = true;
 
@@ -137,9 +149,29 @@
 	nano
 	networkmanagerapplet
 	rofi
+
+	gnome.nautilus
+
+	(callPackage ./sddm-theme.nix {}).catppuccin-mocha
+
+# 	qt5-svg
+# 	qt5-quickcontrols2
   ];
 
   myconfig.steam.enable = true;
+
+  # Enable Nautilus File Manager (https://nixos.wiki/wiki/Nautilus)
+  services.gvfs.enable = true;
+#   nixpkgs.overlays = [(self: super: {
+#     gnome = super.gnome.overrideScope' (gself: gsuper: {
+#       nautilus = gsuper.nautilus.overrideAttrs (nsuper: {
+#         buildInputs = nsuper.buildInputs ++ (with gst_all_1; [
+#           gst-plugins-good
+#           gst-plugins-bad
+#         ]);
+#       });
+#     });
+#   })];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
