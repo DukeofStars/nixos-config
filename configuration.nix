@@ -93,7 +93,8 @@
 
   services.xserver.displayManager.sddm = {
     enable = true;
-    theme = "sddm-catppuccin-mocha-theme";
+    enableHidpi = true;
+    theme = "sugar-dark";
   };
   programs.hyprland.enable = true;
 
@@ -109,6 +110,7 @@
 
   # Enable sound with pipewire.
   sound.enable = true;
+  sound.mediaKeys.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -123,11 +125,9 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-
-  # Enable bluetooth
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-  services.blueman.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -144,7 +144,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; let sddm-themes = (callPackage ./sddm-theme.nix {}); in [
 	git
 	nano
 	networkmanagerapplet
@@ -152,10 +152,10 @@
 
 	gnome.nautilus
 
-	(callPackage ./sddm-theme.nix {}).catppuccin-mocha
+	sddm-themes.catppuccin-mocha
+	sddm-themes.sugar-dark
 
-# 	qt5-svg
-# 	qt5-quickcontrols2
+	libsForQt5.qt5.qtgraphicaleffects
   ];
 
   myconfig.steam.enable = true;

@@ -34,10 +34,10 @@ in {
     XCURSOR_SIZE = 24;
   };
   home.file.".config/hypr/hyprpaper.conf".text = ''
-  preload=~/Pictures/${wallpaper}
-  wallpaper=${primary_monitor},~/Pictures/${wallpaper}
-  wallpaper=${secondary_monitor},~/Pictures/${wallpaper}
-  splash=false
+    preload=~/Pictures/${wallpaper}
+    wallpaper=${primary_monitor},~/Pictures/${wallpaper}
+    wallpaper=${secondary_monitor},~/Pictures/${wallpaper}
+    splash=false
   '';
   wayland.windowManager.hyprland = {
     enable = true;
@@ -129,6 +129,9 @@ in {
 
     # For viewing images.
     gwenview
+  
+    # VSCodium (with easy extension management)
+    vscodium-fhs
   ];
 
   xdg.mimeApps = {
