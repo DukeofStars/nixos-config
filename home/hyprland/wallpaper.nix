@@ -2,10 +2,18 @@
 
 with lib;
 let
+  hypr-cfg = config.myconfig.hyprland;
   cfg = config.myconfig.hyprland.wallpaper;
+in
 {
   options.myconfig.hyprland.wallpaper = {
-    enable = mkEnableOption = "wallpapers with hyprpaper";
+    enable = mkEnableOption "wallpapers with hyprpaper";
+    wallpaper = mkOption {
+      type = types.str;
+      description = ''
+        The file name of the picture to use. Path is expanded to ~/Pictures/{wallpaper}
+      '';
+    };
   };
 
   config = mkIf cfg.enable {
@@ -13,12 +21,12 @@ let
       hyprpaper
     ];
     home.file.".config/hypr/hyprpaper.conf".text = ''
-      preload=~/Pictures/${wallpaper}
-      wallpaper=${primary_monitor},~/Pictures/${wallpaper}
-      wallpaper=${secondary_monitor},~/Pictures/${wallpaper}
+      preload=~/Pictures/${cfg.wallpaper}
+      wallpaper=${hypr-cfg.primary_monitor},~/Pictures/${cfg.wallpaper}
+      wallpaper=${hypr-cfg.secondary_monitor},~/Pictures/${cfg.wallpaper}
       splash=false
     '';
-    wayland.windowManager.hyprland = {
+    wayland.windowManager.hyprland.settings = {
       exec-once = [
         # The wallpaper engine
         "hyprpaper"

@@ -34,10 +34,11 @@
 
   networking = {
     hostName = "nixos"; # Define your hostname.
-    wireless = {
-      enable = true;  # Enables wireless support via wpa_supplicant.
-      userControlled.enable = true;
-    };
+#     wireless = {
+#       enable = true;  # Enables wireless support via wpa_supplicant.
+#       userControlled.enable = true;
+#     };
+    networkmanager.enable = true;
   };
 
   # Set your time zone.

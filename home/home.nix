@@ -1,12 +1,22 @@
 { config, pkgs, ... }:
 
+let
+  enabled = { enable = true; };
+in
 {
   imports = [
     ./apps
     ./hyprland
+    ./services
+    ./themes
   ];
 
   myconfig = {
+    themes.catppuccin = {
+      enable = true;
+      flavour = "mocha";
+      accent = "blue";
+    };
     hyprland = {
       primary_monitor = "HDMI-A-1";
       secondary_monitor = "eDP-1";
@@ -94,26 +104,12 @@
     };
   };
 
-  gtk = {
-    enable = true;
-    theme = {
-      name = "Catppuccin-Mocha-Standard-Blue-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        variant = "mocha";
-      };
-    };
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-folders;
-    };
-  };
-
   programs = {
-    home-manager.enable = true;
-    firefox.enable = true;
-    alacritty.enable = true;
-    rofi.enable = true;
-    neovim.enable = true;
+    home-manager = enabled;
+    firefox = enabled;
+    alacritty = enabled;
+    rofi = enabled;
+    neovim = enabled;
   };
 
   home.file.".config/jj/config.toml".text = ''
