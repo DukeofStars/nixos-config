@@ -1,13 +1,9 @@
 { lib, config, ... }:
 
 with lib;
-let
-  cfg = config.myconfig.hyprland;
-in
-{
-  imports = [
-    ./wallpaper.nix
-  ];
+let cfg = config.myconfig.hyprland;
+in {
+  imports = [ ./wallpaper.nix ];
 
   options.myconfig.hyprland = {
     enable = mkEnableOption "hyprland";
@@ -33,53 +29,40 @@ in
       xwayland.enable = true;
       systemd.enable = true;
       settings = {
-      decoration = {
-        rounding = 6;
-      };
-      "$mod" = "SUPER";
-      input = {
-        touchpad.natural_scroll = true;
-      };
-      monitor = [
-        "eDP-1,1920x1080@144,1920x0,1"
-        "HDMI-A-1,1920x1080@60,0x0,1"
-      ];
-      workspace = [
-        # Primary monitor
-        "1, default:true, monitor:${primary_monitor}"
-        "2, monitor:${primary_monitor}"
-        "3, monitor:${primary_monitor}"
-        "4, monitor:${primary_monitor}"
-        "5, monitor:${primary_monitor}"
-        "6, monitor:${primary_monitor}"
-        # Second monitor
-        "9, monitor:${secondary_monitor}, on-created-empty:[float] discord"
-        "8, monitor:${secondary_monitor}, on-created-empty:[float] firefox"
-        "7, monitor:${secondary_monitor}"
-      ];
-      bind =
-        [
-        "$mod, F, exec, firefox"
-        "$mod, K, exec, alacritty"
-        "ALT, SPACE, exec, rofi -show run"
-        ", Print, exec, grimblast copy area"
-        ]
-        ++ (
-        # workspaces
-        # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
-        builtins.concatLists (builtins.genList (
-            x: let
-                ws = let
-                c = (x + 1) / 10;
-                in
-                builtins.toString (x + 1 - (c * 10));
+        decoration = { rounding = 6; };
+        "$mod" = "SUPER";
+        input = { touchpad.natural_scroll = true; };
+        monitor =
+          [ "eDP-1,1920x1080@144,1920x0,1" "HDMI-A-1,1920x1080@60,0x0,1" ];
+        workspace = [
+          # Primary monitor
+          "1, default:true, monitor:${primary_monitor}"
+          "2, monitor:${primary_monitor}"
+          "3, monitor:${primary_monitor}"
+          "4, monitor:${primary_monitor}"
+          "5, monitor:${primary_monitor}"
+          "6, monitor:${primary_monitor}"
+          # Second monitor
+          "9, monitor:${secondary_monitor}, on-created-empty:[float] discord"
+          "8, monitor:${secondary_monitor}, on-created-empty:[float] firefox"
+          "7, monitor:${secondary_monitor}"
+        ];
+        bind = [
+          "$mod, F, exec, firefox"
+          "$mod, K, exec, alacritty"
+          "ALT, SPACE, exec, rofi -show run"
+          ", Print, exec, grimblast copy area"
+        ] ++ (
+          # workspaces
+          # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
+          builtins.concatLists (builtins.genList (x:
+            let
+              ws = let c = (x + 1) / 10;
+              in builtins.toString (x + 1 - (c * 10));
             in [
-                "$mod, ${ws}, workspace, ${toString (x + 1)}"
-                "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
-            ]
-            )
-            10)
-        );
+              "$mod, ${ws}, workspace, ${toString (x + 1)}"
+              "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+            ]) 10));
       };
     };
   };

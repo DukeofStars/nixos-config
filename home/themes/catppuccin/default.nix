@@ -1,13 +1,9 @@
 { config, lib, ... }:
 
 with lib;
-let
-  cfg = config.myconfig.themes.catppuccin;
-in
-{
-  imports = [
-    ./gtk.nix
-  ];
+let cfg = config.myconfig.themes.catppuccin;
+in {
+  imports = [ ./gtk.nix ];
   options.myconfig.themes.catppuccin = {
     enable = mkEnableOption "catppuccin theme";
     flavour = mkOption {
@@ -19,7 +15,7 @@ in
     accent = mkOption {
       type = types.str;
       description = ''
-       The accent colour to use
+        The accent colour to use
       '';
     };
   };

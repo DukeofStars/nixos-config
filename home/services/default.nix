@@ -1,7 +1,5 @@
 { ... }:
 
 {
-  imports = [
-    ./dunst.nix
-  ];
+  imports = [ ./dunst.nix ];
 }

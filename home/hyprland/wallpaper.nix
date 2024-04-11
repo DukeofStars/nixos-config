@@ -4,8 +4,7 @@ with lib;
 let
   hypr-cfg = config.myconfig.hyprland;
   cfg = config.myconfig.hyprland.wallpaper;
-in
-{
+in {
   options.myconfig.hyprland.wallpaper = {
     enable = mkEnableOption "wallpapers with hyprpaper";
     wallpaper = mkOption {
@@ -17,9 +16,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      hyprpaper
-    ];
+    home.packages = with pkgs; [ hyprpaper ];
     home.file.".config/hypr/hyprpaper.conf".text = ''
       preload=~/Pictures/${cfg.wallpaper}
       wallpaper=${hypr-cfg.primary_monitor},~/Pictures/${cfg.wallpaper}

@@ -1,15 +1,8 @@
 { config, pkgs, ... }:
 
-let
-  enabled = { enable = true; };
-in
-{
-  imports = [
-    ./apps
-    ./hyprland
-    ./services
-    ./themes
-  ];
+let enabled = { enable = true; };
+in {
+  imports = [ ./apps ./hyprland ./services ./themes ];
 
   myconfig = {
     themes.catppuccin = {
@@ -52,9 +45,7 @@ in
   };
 
   # Hyprland
-  home.sessionVariables = {
-    XCURSOR_SIZE = 24;
-  };
+  home.sessionVariables = { XCURSOR_SIZE = 24; };
 
   home.packages = with pkgs; [
     # Obviously.
@@ -64,9 +55,7 @@ in
     kate
 
     # Discord, with OpenAsar
-    (discord.override {
-      withOpenASAR = true;
-    })
+    (discord.override { withOpenASAR = true; })
     # For screensharing.
     vesktop
 
@@ -84,7 +73,7 @@ in
 
     # For viewing images.
     gwenview
-  
+
     # VSCodium (with easy extension management)
     vscodium-fhs
   ];
@@ -92,15 +81,9 @@ in
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "image/png" = [
-        "gwenview.desktop"
-      ];
-      "image/jpeg" = [
-        "gwenview.desktop"
-      ];
-      "inode/directory" = [
-        "nautilus.desktop"
-      ];
+      "image/png" = [ "gwenview.desktop" ];
+      "image/jpeg" = [ "gwenview.desktop" ];
+      "inode/directory" = [ "nautilus.desktop" ];
     };
   };
 
@@ -113,11 +96,11 @@ in
   };
 
   home.file.".config/jj/config.toml".text = ''
-[ui]
-paginate = "never"
+    [ui]
+    paginate = "never"
 
-[user]
-name = "Tristan Fox"
-email = "foxtristan@proton.me"
-'';
+    [user]
+    name = "Tristan Fox"
+    email = "foxtristan@proton.me"
+  '';
 }

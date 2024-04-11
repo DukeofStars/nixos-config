@@ -1,12 +1,11 @@
 { config, pkgs, inputs, lib, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../themes
-      ../../modules
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../themes
+    ../../modules
+  ];
 
   myconfig = {
     steam.enable = true;
@@ -20,8 +19,9 @@
   # Hyprland is not on cache.nixos.org, so use an external cache instead.
   nix.settings = {
     # Use Hyprland cache server.
-    substituters = ["https://hyprland.cachix.org"];
-    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+    substituters = [ "https://hyprland.cachix.org" ];
+    trusted-public-keys =
+      [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     # Enable experimental features
     experimental-features = [ "nix-command" "flakes" ];
   };
@@ -34,10 +34,10 @@
 
   networking = {
     hostName = "nixos"; # Define your hostname.
-#     wireless = {
-#       enable = true;  # Enables wireless support via wpa_supplicant.
-#       userControlled.enable = true;
-#     };
+    #     wireless = {
+    #       enable = true;  # Enables wireless support via wpa_supplicant.
+    #       userControlled.enable = true;
+    #     };
     networkmanager.enable = true;
   };
 
@@ -62,16 +62,14 @@
 
   environment = {
     variables = {
-      XCURSOR_SIZE="24";
-      LIBVA_DRIVER_NAME="nvidia";
-      XDG_SESSION_TYPE="wayland";
-      GBM_BACKEND="nvidia-drm";
-      __GLX_VENDOR_LIBRARY_NAME="nvidia";
-      WLR_NO_HARDWARE_CURSORS="1";
+      XCURSOR_SIZE = "24";
+      LIBVA_DRIVER_NAME = "nvidia";
+      XDG_SESSION_TYPE = "wayland";
+      GBM_BACKEND = "nvidia-drm";
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+      WLR_NO_HARDWARE_CURSORS = "1";
     };
-    sessionVariables = {
-      NIXOS_OZONE_WL = "1";
-    };
+    sessionVariables = { NIXOS_OZONE_WL = "1"; };
     systemPackages = with pkgs; [
       git
       nano
@@ -98,9 +96,7 @@
     pulse.enable = true;
   };
 
-  hardware.bluetooth = {
-    enable = true;
-  };
+  hardware.bluetooth = { enable = true; };
 
   users.users.foxtristan = {
     isNormalUser = true;
