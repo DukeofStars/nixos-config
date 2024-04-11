@@ -2,7 +2,7 @@
 
 let enabled = { enable = true; };
 in {
-  imports = [ ./apps ./hyprland ./services ./themes ];
+  imports = [ ./apps ./hyprland ./services ./themes ./fonts.nix ];
 
   myconfig = {
     themes.catppuccin = {
