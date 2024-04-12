@@ -11,6 +11,7 @@ in {
       accent = "blue";
     };
     hyprland = {
+      enable = true;
       primary_monitor = "HDMI-A-1";
       secondary_monitor = "eDP-1";
       wallpaper = {

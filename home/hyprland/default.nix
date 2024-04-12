@@ -36,16 +36,16 @@ in {
           [ "eDP-1,1920x1080@144,1920x0,1" "HDMI-A-1,1920x1080@60,0x0,1" ];
         workspace = [
           # Primary monitor
-          "1, default:true, monitor:${primary_monitor}"
-          "2, monitor:${primary_monitor}"
-          "3, monitor:${primary_monitor}"
-          "4, monitor:${primary_monitor}"
-          "5, monitor:${primary_monitor}"
-          "6, monitor:${primary_monitor}"
+          "1, default:true, monitor:${cfg.primary_monitor}"
+          "2, monitor:${cfg.primary_monitor}"
+          "3, monitor:${cfg.primary_monitor}"
+          "4, monitor:${cfg.primary_monitor}"
+          "5, monitor:${cfg.primary_monitor}"
+          "6, monitor:${cfg.primary_monitor}"
           # Second monitor
-          "9, monitor:${secondary_monitor}, on-created-empty:[float] discord"
-          "8, monitor:${secondary_monitor}, on-created-empty:[float] firefox"
-          "7, monitor:${secondary_monitor}"
+          "9, monitor:${cfg.secondary_monitor}, on-created-empty:[float] discord"
+          "8, monitor:${cfg.secondary_monitor}, on-created-empty:[float] firefox"
+          "7, monitor:${cfg.secondary_monitor}"
         ];
         bind = [
           "$mod, F, exec, firefox"
