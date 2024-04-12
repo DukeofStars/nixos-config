@@ -3,8 +3,7 @@
 {
   config = {
     fonts.fontconfig.enable = true;
-    home.packages = [
-      (pkgs.nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
-    ];
+    home.packages =
+      [ (pkgs.nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; }) ];
   };
 }
