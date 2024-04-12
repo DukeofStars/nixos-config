@@ -10,6 +10,9 @@ in {
       flavour = "mocha";
       accent = "blue";
     };
+    apps = {
+      rofi = enabled;
+    };
     hyprland = {
       enable = true;
       primary_monitor = "HDMI-A-1";

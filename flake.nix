@@ -8,6 +8,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    catppuccin-hyprland-colours = {
+      url = "github:catppuccin/hyprland";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
@@ -23,6 +28,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.foxtristan = import ./home/home.nix;
+          home-manager.extraSpecialArgs = { inherit inputs; };
         }
       ];
     };

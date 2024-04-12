@@ -1,1 +1,1 @@
-{ ... }: { imports = [ ]; }
+{ ... }: { imports = [ ./rofi.nix ]; }

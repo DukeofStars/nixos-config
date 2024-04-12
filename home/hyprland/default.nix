@@ -29,7 +29,6 @@ in {
       xwayland.enable = true;
       systemd.enable = true;
       settings = {
-        decoration = { rounding = 6; };
         "$mod" = "SUPER";
         input = { touchpad.natural_scroll = true; };
         monitor =

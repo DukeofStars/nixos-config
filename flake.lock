@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "catppuccin-hyprland-colours": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1712161758,
+        "narHash": "sha256-XTqpmucOeHUgSpXQ0XzbggBFW+ZloRD/3mFhI+Tq4O8=",
+        "owner": "catppuccin",
+        "repo": "hyprland",
+        "rev": "b57375545f5da1f7790341905d1049b1873a8bb3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "hyprland",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -38,6 +54,7 @@
     },
     "root": {
       "inputs": {
+        "catppuccin-hyprland-colours": "catppuccin-hyprland-colours",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs"
       }
