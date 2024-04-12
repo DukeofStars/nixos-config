@@ -54,7 +54,7 @@ in {
           ];
           "custom/launcher" = {
             format = "";
-            on-click = "rofi";
+            on-click = "rofi -show drun";
           };
           "idle_inhibitor" = {
             format = "{icon}";
