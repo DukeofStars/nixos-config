@@ -12,6 +12,7 @@ in {
     };
     apps = {
       rofi = enabled;
+      waybar = enabled;
     };
     hyprland = {
       enable = true;

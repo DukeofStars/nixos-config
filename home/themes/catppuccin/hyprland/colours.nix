@@ -3,15 +3,12 @@
 { config, lib, inputs, ... }:
 
 with lib;
-let
-  cfg = config.myconfig.themes.catppuccin;
-in
-{
+let cfg = config.myconfig.themes.catppuccin;
+in {
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland.settings = {
-      source = [
-        "${inputs.catppuccin-hyprland-colours}/themes/${cfg.flavour}.conf"
-      ];
+      source =
+        [ "${inputs.catppuccin-hyprland-colours}/themes/${cfg.flavour}.conf" ];
     };
   };
 }

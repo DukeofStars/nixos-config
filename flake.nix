@@ -8,7 +8,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     catppuccin-hyprland-colours = {
       url = "github:catppuccin/hyprland";
       flake = false;

@@ -8,8 +8,8 @@ let
     version = "1.0.2";
     dontBuild = true;
     installPhase = ''
-    mkdir -p $out/share/rofi/themes
-    cp -aR $src/basic/.local/* $out/
+      mkdir -p $out/share/rofi/themes
+      cp -aR $src/basic/.local/* $out/
     '';
     src = pkgs.fetchFromGitHub {
       owner = "catppuccin";
@@ -18,8 +18,7 @@ let
       rev = "main";
     };
   };
-in
-{
+in {
   config = mkIf cfg.enable {
     programs.rofi = {
       theme = "${pkg}/share/rofi/themes/catppuccin-${cfg.flavour}";
@@ -38,8 +37,6 @@ in
         sidebar-mode = true;
       };
     };
-    home.packages = [
-      pkg
-    ];
+    home.packages = [ pkg ];
   };
 }
