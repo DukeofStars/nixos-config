@@ -28,17 +28,16 @@
   };
 
   # Bootloader.
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    kernelParams = [ "nvidia_drm.modeset=1" ];
   };
 
   networking = {
     hostName = "nixos"; # Define your hostname.
-    #     wireless = {
-    #       enable = true;  # Enables wireless support via wpa_supplicant.
-    #       userControlled.enable = true;
-    #     };
     networkmanager.enable = true;
   };
 
@@ -97,7 +96,10 @@
     pulse.enable = true;
   };
 
-  hardware.bluetooth = { enable = true; };
+  hardware = {
+    bluetooth.enable = true;
+    opengl.enable = true;
+  };
 
   users.users.foxtristan = {
     isNormalUser = true;
@@ -129,6 +131,7 @@
         # flat: accelerate at a constant speed. adaptive: pointer acceleration depends on input speed.
         accelProfile = "flat";
       };
+      videoDrivers = [ "nvidia" ];
     };
   };
 
