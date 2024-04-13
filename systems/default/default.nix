@@ -33,11 +33,10 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    kernelParams = [ "nvidia_drm.modeset=1" ];
   };
 
   networking = {
-    hostName = "nixos"; # Define your hostname.
+    hostName = "tristans-laptop"; # Define your hostname.
     networkmanager.enable = true;
   };
 
@@ -63,10 +62,7 @@
   environment = {
     variables = {
       XCURSOR_SIZE = "24";
-      LIBVA_DRIVER_NAME = "nvidia";
       XDG_SESSION_TYPE = "wayland";
-      GBM_BACKEND = "nvidia-drm";
-      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
       WLR_NO_HARDWARE_CURSORS = "1";
     };
     sessionVariables = { NIXOS_OZONE_WL = "1"; };
@@ -98,7 +94,24 @@
 
   hardware = {
     bluetooth.enable = true;
-    opengl.enable = true;
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+    };
+    # nvidia = {
+    #   # Modesetting is needed for most Wayland compositors
+    #   modesetting.enable = true;
+
+    #   # Use the open source version of the kernel module
+    #   # Only available on driver 515.43.04+
+    #   open = false;
+
+    #   # Enable the nvidia settings menu
+    #   nvidiaSettings = true;
+
+    #   package = config.boot.kernelPackages.nvidiaPackages.stable;
+    # };
   };
 
   users.users.foxtristan = {
@@ -132,9 +145,17 @@
         # flat: accelerate at a constant speed. adaptive: pointer acceleration depends on input speed.
         accelProfile = "flat";
       };
-      videoDrivers = [ "nvidia" ];
     };
   };
+
+  # xdg.portal.enable = true;
+  # xdg.portal.extraPortals = [
+  #   pkgs.xdg-desktop-portal-gnome
+  #   (pkgs.xdg-desktop-portal-gtk.override {
+  #     # Do not build portals that we already have.
+  #     buildPortalsInGnome = false;
+  #   })
+  # ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

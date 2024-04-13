@@ -7,8 +7,8 @@ in {
   myconfig = {
     themes.catppuccin = {
       enable = true;
-      flavour = "mocha";
-      accent = "blue";
+      flavour = "macchiato";
+      accent = "sapphire";
     };
     apps = {
       rofi = enabled;
@@ -65,8 +65,6 @@ in {
 
     # Discord, with OpenAsar
     (discord.override { withOpenASAR = true; })
-    # For screensharing.
-    vesktop
 
     # Better git client
     jujutsu
