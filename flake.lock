@@ -16,6 +16,22 @@
         "type": "github"
       }
     },
+    "dotfiles_fig": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1696461616,
+        "narHash": "sha256-0ECeyZtWSP7n4NR90wrvSQ3iXozznAQQzzOz6gzLwYI=",
+        "owner": "DukeofStars",
+        "repo": "dotfiles_fig",
+        "rev": "2ca1496b1d5fda54d6e5d969cde8e8f9d6086018",
+        "type": "github"
+      },
+      "original": {
+        "owner": "DukeofStars",
+        "repo": "dotfiles_fig",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -55,6 +71,7 @@
     "root": {
       "inputs": {
         "catppuccin-hyprland-colours": "catppuccin-hyprland-colours",
+        "dotfiles_fig": "dotfiles_fig",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs"
       }

@@ -1,1 +1,3 @@
-{ ... }: { imports = [ ./rofi.nix ./waybar.nix ]; }
+{ ... }: {
+  imports = [ ./rofi.nix ./waybar.nix ./starship.nix ./kitty.nix ./nushell ];
+}

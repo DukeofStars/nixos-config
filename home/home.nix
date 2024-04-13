@@ -13,6 +13,10 @@ in {
     apps = {
       rofi = enabled;
       waybar = enabled;
+      kitty = enabled;
+      nushell = enabled;
+      # Implied by 'nushell = enabled', but here for clarity.
+      starship = enabled;
     };
     hyprland = {
       enable = true;
@@ -72,9 +76,6 @@ in {
 
     # I think this is a screenshot tool.
     grimblast
-
-    # Alacritty terminal
-    alacritty
 
     # For viewing images.
     gwenview

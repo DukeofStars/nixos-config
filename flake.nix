@@ -13,6 +13,11 @@
       url = "github:catppuccin/hyprland";
       flake = false;
     };
+
+    dotfiles_fig = {
+      url = "github:DukeofStars/dotfiles_fig";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {

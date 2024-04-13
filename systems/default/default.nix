@@ -105,6 +105,7 @@
     isNormalUser = true;
     description = "Tristan Fox";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.nushell;
   };
 
   # Allow unfree packages
