@@ -49,7 +49,7 @@ in {
         bind = [
           "$mod, F, exec, firefox"
           "$mod, K, exec, alacritty"
-          "ALT, SPACE, exec, rofi -show run"
+          "ALT, SPACE, exec, rofi -show drun"
           ", Print, exec, grimblast copy area"
         ] ++ (
           # workspaces
