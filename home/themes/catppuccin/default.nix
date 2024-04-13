@@ -3,7 +3,7 @@
 with lib;
 let cfg = config.myconfig.themes.catppuccin;
 in {
-  imports = [ ./gtk.nix ./hyprland ./rofi.nix ./waybar.nix ];
+  imports = [ ./gtk.nix ./hyprland ./rofi.nix ./waybar.nix ./kitty.nix ];
   options.myconfig.themes.catppuccin = {
     enable = mkEnableOption "catppuccin theme";
     flavour = mkOption {
