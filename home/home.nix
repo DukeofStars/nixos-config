@@ -7,8 +7,8 @@ in {
   myconfig = {
     themes.catppuccin = {
       enable = true;
-      flavour = "macchiato";
-      accent = "sapphire";
+      flavour = "mocha";
+      accent = "blue";
     };
     apps = {
       rofi = enabled;
