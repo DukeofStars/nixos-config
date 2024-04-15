@@ -18,6 +18,8 @@
       url = "github:DukeofStars/dotfiles_fig";
       flake = false;
     };
+
+    rust-overlay.url = "github:oxalica/rust-overlay/";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {

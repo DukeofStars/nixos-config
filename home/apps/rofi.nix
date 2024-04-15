@@ -8,7 +8,7 @@ in {
   config = mkIf cfg.enable {
     programs.rofi = {
       enable = true;
-      terminal = "alacritty";
+      terminal = "kitty";
     };
   };
 }
