@@ -11,6 +11,7 @@ in {
       accent = "blue";
     };
     apps = {
+      rust = enabled;
       rofi = enabled;
       waybar = enabled;
       kitty = enabled;

@@ -22,7 +22,7 @@
     rust-overlay.url = "github:oxalica/rust-overlay/";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, rust-overlay, ... }@inputs: {
     # Add formatter (why do you need to add it here?)
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
 
@@ -37,6 +37,9 @@
           home-manager.users.foxtristan = import ./home/home.nix;
           home-manager.extraSpecialArgs = { inherit inputs; };
         }
+        ({ pkgs, ... }: {
+          nixpkgs.overlays = [ rust-overlay.overlays.default ];
+        })
       ];
     };
   };
