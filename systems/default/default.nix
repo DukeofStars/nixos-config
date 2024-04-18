@@ -114,6 +114,7 @@
     # };
   };
 
+  users.mutableUsers = false;
   users.users.foxtristan = {
     isNormalUser = true;
     description = "Tristan Fox";
