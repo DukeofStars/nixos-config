@@ -11,7 +11,7 @@ let
 in
 {
   formatter = pkgs.nixfmt-rfc-style;
-  devShell.default = pkgs.mkShell { buildInputs = with pkgs; [ nil ]; };
+  devShells.default = pkgs.mkShell { buildInputs = with pkgs; [ nil ]; };
 
   nixosConfigurations.default = nixpkgs.lib.nixosSystem {
     specialArgs = {
