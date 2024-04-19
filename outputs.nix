@@ -13,7 +13,7 @@ in
   formatter = pkgs.nixfmt-rfc-style;
   devShells.default = pkgs.mkShell { buildInputs = with pkgs; [ nil ]; };
 
-  nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+  _nixosConfigurations.default = nixpkgs.lib.nixosSystem {
     specialArgs = {
       inherit inputs;
     };
