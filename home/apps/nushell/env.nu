@@ -80,3 +80,5 @@ $env.NU_PLUGIN_DIRS = [
 # Starship
 mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu
+
+alias develop = nix develop --impure -c nu;
