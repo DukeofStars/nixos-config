@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, lib, ... }:
+{  pkgs, ... }:
 
 {
   imports = [ # Include the results of the hardware scan.
@@ -114,7 +114,7 @@
     # };
   };
 
-#  users.mutableUsers = false;
+  #  users.mutableUsers = false;
   users.users.foxtristan = {
     isNormalUser = true;
     description = "Tristan Fox";
