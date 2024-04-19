@@ -1,5 +1,5 @@
 { ... }:
 
 {
-  imports = [ ./dunst.nix ];
+  imports = [ ./dunst.nix ./bluetooth.nix ];
 }
