@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let enabled = { enable = true; };
 in {
@@ -9,6 +9,11 @@ in {
       enable = true;
       flavour = "mocha";
       accent = "blue";
+    };
+    themes.cursor = {
+      size = 24;
+      name = "Bibata-Modern-Ice";
+      package = pkgs.bibata-cursors;
     };
     apps = {
       rust = enabled;
@@ -46,18 +51,6 @@ in {
   # changes in each release.
   home.stateVersion = "23.11";
 
-  # Cursor
-  home.pointerCursor = {
-    gtk.enable = true;
-    x11.enable = true;
-    name = "Bibata-Modern-Classic";
-    size = 24;
-    package = pkgs.bibata-cursors;
-  };
-
-  # Hyprland
-  home.sessionVariables = { XCURSOR_SIZE = 24; };
-
   home.packages = with pkgs; [
     # Obviously.
     home-manager
@@ -67,9 +60,6 @@ in {
 
     # Discord, with OpenAsar
     (discord.override { withOpenASAR = true; })
-
-    # Better git client
-    jujutsu
 
     # Of course.
     neofetch
@@ -100,13 +90,4 @@ in {
     rofi = enabled;
     neovim = enabled;
   };
-
-  home.file.".config/jj/config.toml".text = ''
-    [ui]
-    paginate = "never"
-
-    [user]
-    name = "Tristan Fox"
-    email = "foxtristan@proton.me"
-  '';
 }
