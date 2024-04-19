@@ -1,8 +1,10 @@
 { lib, config, ... }:
 
 with lib;
-let cfg = config.myconfig.themes.cursor;
-in {
+let
+  cfg = config.myconfig.themes.cursor;
+in
+{
   options.myconfig.themes.cursor = {
     enable = mkEnableOption "cursor themes";
     package = mkOption {
@@ -28,6 +30,8 @@ in {
       package = cfg.package;
     };
 
-    home.sessionVariables = { XCURSOR_SIZE = cfg.size; };
+    home.sessionVariables = {
+      XCURSOR_SIZE = cfg.size;
+    };
   };
 }

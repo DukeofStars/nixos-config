@@ -102,12 +102,28 @@
         "type": "github"
       }
     },
+    "nosys": {
+      "locked": {
+        "lastModified": 1708971380,
+        "narHash": "sha256-vw8MUu8N2VLhieciB8ory4aZ3RwIZD6sdwpwPLXOC64=",
+        "owner": "divnix",
+        "repo": "nosys",
+        "rev": "798ee92962613f296c0ed89a098a7fba9978ffc0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "divnix",
+        "repo": "nosys",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "catppuccin-hyprland-colours": "catppuccin-hyprland-colours",
         "dotfiles_fig": "dotfiles_fig",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "nosys": "nosys",
         "rust-overlay": "rust-overlay"
       }
     },

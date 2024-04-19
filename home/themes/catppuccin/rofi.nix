@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 let
@@ -18,7 +23,8 @@ let
       rev = "main";
     };
   };
-in {
+in
+{
   config = mkIf cfg.enable {
     programs.rofi = {
       theme = "${pkg}/share/rofi/themes/catppuccin-${cfg.flavour}";

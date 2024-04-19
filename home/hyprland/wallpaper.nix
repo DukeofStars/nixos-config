@@ -1,10 +1,16 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 let
   hypr-cfg = config.myconfig.hyprland;
   cfg = config.myconfig.hyprland.wallpaper;
-in {
+in
+{
   options.myconfig.hyprland.wallpaper = {
     enable = mkEnableOption "wallpapers with hyprpaper";
     wallpaper = mkOption {

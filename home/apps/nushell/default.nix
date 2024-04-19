@@ -1,9 +1,19 @@
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 with lib;
-let cfg = config.myconfig.apps.nushell;
-in {
-  options.myconfig.apps.nushell = { enable = mkEnableOption "nushell"; };
+let
+  cfg = config.myconfig.apps.nushell;
+in
+{
+  options.myconfig.apps.nushell = {
+    enable = mkEnableOption "nushell";
+  };
 
   config = mkIf cfg.enable {
     programs.nushell = {

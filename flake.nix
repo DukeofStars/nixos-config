@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nosys.url = "github:divnix/nosys";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -22,25 +23,13 @@
     rust-overlay.url = "github:oxalica/rust-overlay/";
   };
 
-  outputs = { self, nixpkgs, home-manager, rust-overlay, ... }@inputs: {
-    # Add formatter (why do you need to add it here?)
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
-
-    nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
-      modules = [
-        ./systems/default
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.foxtristan = import ./home/home.nix;
-          home-manager.extraSpecialArgs = { inherit inputs; };
-        }
-        ({ pkgs, ... }: {
-          nixpkgs.overlays = [ rust-overlay.overlays.default ];
-        })
-      ];
-    };
-  };
+  outputs =
+    inputs@{ nosys, ... }:
+    nosys (
+      inputs
+      // {
+        inherit inputs;
+        systems = [ "x86_64-linux" ];
+      }
+    ) (import ./outputs.nix);
 }

@@ -1,4 +1,10 @@
-{ config, lib, pkgs, fetchzip, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  fetchzip,
+  ...
+}:
 with lib;
 let
   cfg = config.myconfig.themes.sddm;
@@ -12,8 +18,7 @@ let
         cp -aR $src $out/share/sddm/themes/catppuccin-mocha
       '';
       src = fetchzip {
-        url =
-          "https://github.com/catppuccin/sddm/releases/download/v1.0.0/catppuccin-mocha.zip";
+        url = "https://github.com/catppuccin/sddm/releases/download/v1.0.0/catppuccin-mocha.zip";
         hash = "sha256-+YxKzuu2p46QoCZykXLYFwkXcJ+uJ7scwDU7vJ4b1pA=";
       };
     };
@@ -33,7 +38,8 @@ let
       };
     };
   };
-in {
+in
+{
   options.myconfig.themes.sddm = {
     enable = mkEnableOption "SDDM theming";
     theme = mkOption {
@@ -46,6 +52,8 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = [ sddm-themes.${cfg.theme} ];
-    services.xserver.displayManager.sddm = { theme = cfg.theme; };
+    services.xserver.displayManager.sddm = {
+      theme = cfg.theme;
+    };
   };
 }

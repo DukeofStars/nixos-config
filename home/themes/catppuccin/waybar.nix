@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 let
@@ -18,7 +23,8 @@ let
       rev = "main";
     };
   };
-in {
+in
+{
   config = mkIf cfg.enable {
     programs.waybar = {
       # Shamelessly stolen from i4pg (https://github.com/i4pg/dotfiles)
@@ -42,7 +48,10 @@ in {
             "mpd"
             "custom/cava-internal"
           ];
-          modules-center = [ "custom/weather" "clock" ];
+          modules-center = [
+            "custom/weather"
+            "clock"
+          ];
           modules-right = [
             "backlight"
             "disk"
@@ -75,7 +84,13 @@ in {
             scroll-step = 1;
             format = "{icon} {volume}%";
             format-muted = "婢 Muted";
-            format-icons = { default = [ "" "" "" ]; };
+            format-icons = {
+              default = [
+                ""
+                ""
+                ""
+              ];
+            };
             on-click = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
             tooltip = false;
           };
@@ -86,7 +101,17 @@ in {
               critical = 10;
             };
             format = "{icon} {capacity}%";
-            format-icons = [ "" "" "" "" "" "" "" "" "" ];
+            format-icons = [
+              ""
+              ""
+              ""
+              ""
+              ""
+              ""
+              ""
+              ""
+              ""
+            ];
             format-full = "{icon} {capacity}%";
             format-charging = " {capacity}%";
             tooltip = true;
@@ -106,7 +131,9 @@ in {
             on-click = "kitty btm";
             interval = 1;
             format = "﬙ {percentage}%";
-            states = { "warning" = 85; };
+            states = {
+              "warning" = 85;
+            };
           };
           "cpu" = {
             interval = 1;
@@ -124,8 +151,7 @@ in {
             on-scroll-up = "mpc --quiet prev";
             on-scroll-down = "mpc --quiet next";
             smooth-scrolling-threshold = 5;
-            tooltip-format =
-              "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})";
+            tooltip-format = "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})";
           };
           "network" = {
             interval = 1;

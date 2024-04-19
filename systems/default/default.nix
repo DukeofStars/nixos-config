@@ -1,7 +1,8 @@
 { pkgs, ... }:
 
 {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../themes
     ../../modules
@@ -20,10 +21,12 @@
   nix.settings = {
     # Use Hyprland cache server.
     substituters = [ "https://hyprland.cachix.org" ];
-    trusted-public-keys =
-      [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     # Enable experimental features
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     warn-dirty = false;
   };
 
@@ -72,7 +75,9 @@
       XDG_SESSION_TYPE = "wayland";
       WLR_NO_HARDWARE_CURSORS = "1";
     };
-    sessionVariables = { NIXOS_OZONE_WL = "1"; };
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+    };
     systemPackages = with pkgs; [
       git
       nano
@@ -103,7 +108,11 @@
     bluetooth = {
       enable = true;
       powerOnBoot = true;
-      settings = { General = { Experimental = true; }; };
+      settings = {
+        General = {
+          Experimental = true;
+        };
+      };
     };
     opengl = {
       enable = true;
@@ -129,7 +138,10 @@
   users.users.foxtristan = {
     isNormalUser = true;
     description = "Tristan Fox";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     shell = pkgs.nushell;
   };
 
@@ -178,5 +190,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }

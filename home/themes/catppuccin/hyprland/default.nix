@@ -1,8 +1,10 @@
 { config, lib, ... }:
 
 with lib;
-let cfg = config.myconfig.themes.catppuccin;
-in {
+let
+  cfg = config.myconfig.themes.catppuccin;
+in
+{
   imports = [ ./colours.nix ];
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland.settings = {
@@ -15,7 +17,9 @@ in {
 
         layout = "master";
       };
-      decoration = { rounding = 6; };
+      decoration = {
+        rounding = 6;
+      };
       animations = {
         enabled = "yes";
         bezier = [ "myBezier, 0.05, 0.9, 0.1, 1.05" ];
@@ -31,7 +35,9 @@ in {
         pseudotile = true;
         preserve_split = true;
       };
-      master = { new_is_master = true; };
+      master = {
+        new_is_master = true;
+      };
     };
   };
 }

@@ -1,9 +1,18 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
-let cfg = config.myconfig.apps.starship;
-in {
-  options.myconfig.apps.starship = { enable = mkEnableOption "starship"; };
+let
+  cfg = config.myconfig.apps.starship;
+in
+{
+  options.myconfig.apps.starship = {
+    enable = mkEnableOption "starship";
+  };
 
   config = mkIf cfg.enable {
     programs.starship = {

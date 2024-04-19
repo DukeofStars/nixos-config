@@ -1,5 +1,8 @@
 { ... }:
 
 {
-  imports = [ ./catppuccin ./cursor ];
+  imports = [
+    ./catppuccin
+    ./cursor
+  ];
 }

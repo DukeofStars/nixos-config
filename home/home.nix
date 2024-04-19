@@ -1,8 +1,18 @@
 { pkgs, ... }:
 
-let enabled = { enable = true; };
-in {
-  imports = [ ./apps ./hyprland ./services ./themes ./fonts.nix ];
+let
+  enabled = {
+    enable = true;
+  };
+in
+{
+  imports = [
+    ./apps
+    ./hyprland
+    ./services
+    ./themes
+    ./fonts.nix
+  ];
 
   myconfig = {
     themes.catppuccin = {
@@ -34,7 +44,9 @@ in {
         wallpaper = "sakuratree.png";
       };
     };
-    services = { dunst = enabled; };
+    services = {
+      dunst = enabled;
+    };
   };
 
   # Home Manager needs a bit of information about you and the
