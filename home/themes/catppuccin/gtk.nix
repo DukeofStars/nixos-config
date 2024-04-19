@@ -9,7 +9,6 @@ let
 in {
   config = mkIf cfg.enable {
     gtk = {
-      enable = true;
       theme = {
         name = "Catppuccin-${firstLetterToUpper cfg.flavour}-Standard-${
             firstLetterToUpper cfg.accent

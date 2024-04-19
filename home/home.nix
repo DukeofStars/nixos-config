@@ -12,9 +12,9 @@ in {
     };
     themes.cursor = {
       enable = true;
-      size = 24;
-      name = "Numix-Cursor";
-      package = pkgs.numix-cursor-theme;
+      size = 28;
+      name = "capitaine-cursors";
+      package = pkgs.capitaine-cursors;
     };
     apps = {
       rust = enabled;
@@ -91,4 +91,6 @@ in {
     rofi = enabled;
     neovim = enabled;
   };
+
+  gtk.enable = true;
 }

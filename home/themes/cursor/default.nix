@@ -28,12 +28,6 @@ in {
       package = cfg.package;
     };
 
-    gtk.cursorTheme = {
-      package = cfg.package;
-      name = cfg.name;
-      size = cfg.size;
-    };
-
     home.sessionVariables = { XCURSOR_SIZE = cfg.size; };
   };
 }
