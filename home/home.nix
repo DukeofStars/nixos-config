@@ -11,9 +11,10 @@ in {
       accent = "blue";
     };
     themes.cursor = {
+      enable = true;
       size = 24;
-      name = "Bibata-Modern-Ice";
-      package = pkgs.bibata-cursors;
+      name = "Numix-Cursor";
+      package = pkgs.numix-cursor-theme;
     };
     apps = {
       rust = enabled;

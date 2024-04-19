@@ -48,7 +48,7 @@ in {
         ];
         bind = [
           "$mod, F, exec, firefox"
-          "$mod, K, exec, alacritty"
+          "$mod, K, exec, kitty"
           "ALT, SPACE, exec, rofi -show drun"
           ", Print, exec, grimblast copy area"
         ] ++ (

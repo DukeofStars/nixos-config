@@ -21,16 +21,22 @@ in
   };
 
   config = mkIf cfg.enable {
-  # Cursor
-  home.pointerCursor = {
-    gtk.enable = true;
-    x11.enable = true;
-    name = cfg.name;
-    size = cfg.size;
-    package = cfg.package;
-  };
+    # Cursor
+    home.pointerCursor = {
+      gtk.enable = true;
+      x11.enable = true;
+      name = cfg.name;
+      size = cfg.size;
+      package = cfg.package;
+    };
 
-  # Hyprland
-  home.sessionVariables = { XCURSOR_SIZE = cfg.size; };
+    gtk.cursorTheme = {
+      package = cfg.package;
+      name = cfg.name;
+      size = cfg.size;
+    };
+
+    # Hyprland
+    home.sessionVariables = { XCURSOR_SIZE = cfg.size; };
   };
 }
