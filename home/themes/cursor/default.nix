@@ -2,8 +2,7 @@
 
 with lib;
 let cfg = config.myconfig.themes.cursor;
-in
-{
+in {
   options.myconfig.themes.cursor = {
     enable = mkEnableOption "cursor themes";
     package = mkOption {
@@ -21,7 +20,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    # Cursor
     home.pointerCursor = {
       gtk.enable = true;
       x11.enable = true;
@@ -36,7 +34,6 @@ in
       size = cfg.size;
     };
 
-    # Hyprland
     home.sessionVariables = { XCURSOR_SIZE = cfg.size; };
   };
 }

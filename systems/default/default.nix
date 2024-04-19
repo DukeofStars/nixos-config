@@ -1,4 +1,4 @@
-{  pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [ # Include the results of the hardware scan.
@@ -30,7 +30,13 @@
   # Bootloader.
   boot = {
     loader = {
-      systemd-boot.enable = true;
+      #systemd-boot.enable = true;
+      grub = {
+        enable = true;
+        devices = [ "nodev" ];
+        efiSupport = true;
+        useOSProber = true;
+      };
       efi.canTouchEfiVariables = true;
     };
   };
@@ -42,6 +48,7 @@
 
   # Set your time zone.
   time.timeZone = "Australia/Melbourne";
+  time.hardwareClockInLocalTime = true;
 
   # Select internationalisation properties.
   i18n = {
