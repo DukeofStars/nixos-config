@@ -7,5 +7,6 @@
     ./starship.nix
     ./kitty.nix
     ./nushell
+    ./thunderbird.nix
   ];
 }

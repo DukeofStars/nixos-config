@@ -34,6 +34,7 @@ in
       nushell = enabled;
       # Implied by 'nushell = enabled', but here for clarity.
       starship = enabled;
+      thunderbird = enabled;
     };
     hyprland = {
       enable = true;
