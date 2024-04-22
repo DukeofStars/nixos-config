@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./arc-browser.nix
     ./rust
     ./rofi.nix
     ./waybar.nix

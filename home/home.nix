@@ -47,6 +47,7 @@ in
     };
     services = {
       dunst = enabled;
+      darling = enabled;
     };
   };
 
