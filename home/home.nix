@@ -35,6 +35,7 @@ in
       # Implied by 'nushell = enabled', but here for clarity.
       starship = enabled;
       thunderbird = enabled;
+      vivaldi = enabled;
     };
     hyprland = {
       enable = true;
@@ -47,7 +48,6 @@ in
     };
     services = {
       dunst = enabled;
-      darling = enabled;
     };
   };
 

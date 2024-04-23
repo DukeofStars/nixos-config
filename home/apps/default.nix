@@ -9,5 +9,6 @@
     ./kitty.nix
     ./nushell
     ./thunderbird.nix
+    ./vivaldi.nix
   ];
 }
