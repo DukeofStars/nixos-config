@@ -21,7 +21,7 @@ in
         enableWidevine = false;
       })
       vivaldi-ffmpeg-codecs
-      vivaldi-widevine
+      widevine-cdm
     ];
   };
 }
