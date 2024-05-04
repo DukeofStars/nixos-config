@@ -50,8 +50,10 @@
   };
 
   # Set your time zone.
-  time.timeZone = "Australia/Melbourne";
-  time.hardwareClockInLocalTime = true;
+  time = {
+    timeZone = "Australia/Melbourne";
+    hardwareClockInLocalTime = true;
+  };
 
   # Select internationalisation properties.
   i18n = {
@@ -87,6 +89,8 @@
       gnome.nautilus
 
       libsForQt5.qt5.qtgraphicaleffects
+
+      protonup
     ];
   };
 
@@ -119,19 +123,15 @@
       driSupport = true;
       driSupport32Bit = true;
     };
-    # nvidia = {
-    #   # Modesetting is needed for most Wayland compositors
-    #   modesetting.enable = true;
-
-    #   # Use the open source version of the kernel module
-    #   # Only available on driver 515.43.04+
-    #   open = false;
-
-    #   # Enable the nvidia settings menu
-    #   nvidiaSettings = true;
-
-    #   package = config.boot.kernelPackages.nvidiaPackages.stable;
-    # };
+    nvidia = {
+      modesetting.enable = true;
+      # For hybrid graphics
+      prime = {
+        sync.enable = true;
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId =  "PCI:1:0:0";
+      };
+    };
   };
 
   #  users.mutableUsers = false;
@@ -160,6 +160,7 @@
 
     xserver = {
       enable = true;
+      videoDrivers = ["nvidia"];
       displayManager.sddm = {
         enable = true;
         enableHidpi = true;
@@ -173,15 +174,6 @@
 
     blueman.enable = true;
   };
-
-  # xdg.portal.enable = true;
-  # xdg.portal.extraPortals = [
-  #   pkgs.xdg-desktop-portal-gnome
-  #   (pkgs.xdg-desktop-portal-gtk.override {
-  #     # Do not build portals that we already have.
-  #     buildPortalsInGnome = false;
-  #   })
-  # ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
