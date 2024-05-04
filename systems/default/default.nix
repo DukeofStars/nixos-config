@@ -129,7 +129,7 @@
       prime = {
         sync.enable = true;
         intelBusId = "PCI:0:2:0";
-        nvidiaBusId =  "PCI:1:0:0";
+        nvidiaBusId = "PCI:1:0:0";
       };
     };
   };
@@ -158,13 +158,13 @@
     # Enable CUPS to print documents.
     printing.enable = true;
 
+    displayManager.sddm = {
+      enable = true;
+      enableHidpi = true;
+    };
     xserver = {
       enable = true;
-      videoDrivers = ["nvidia"];
-      displayManager.sddm = {
-        enable = true;
-        enableHidpi = true;
-      };
+      videoDrivers = [ "nvidia" ];
       libinput.mouse = {
         accelSpeed = "0";
         # flat: accelerate at a constant speed. adaptive: pointer acceleration depends on input speed.
