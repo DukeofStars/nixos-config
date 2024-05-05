@@ -39,8 +39,8 @@ in
     };
     hyprland = {
       enable = true;
-      primary_monitor = "HDMI-A-1";
-      secondary_monitor = "eDP-1";
+      primaryMonitor = "HDMI-A-1";
+      secondaryMonitor = "eDP-1";
       wallpaper = {
         enable = true;
         wallpaper = "sakuratree.png";

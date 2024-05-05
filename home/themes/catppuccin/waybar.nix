@@ -34,8 +34,8 @@ in
           position = "top";
           height = 30;
           output = [
-            "${config.myconfig.hyprland.primary_monitor}"
-            "${config.myconfig.hyprland.secondary_monitor}"
+            "${config.myconfig.hyprland.primaryMonitor}"
+            "${config.myconfig.hyprland.secondaryMonitor}"
           ];
 
           modules-left = [

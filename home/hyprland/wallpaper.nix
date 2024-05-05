@@ -25,8 +25,8 @@ in
     home.packages = with pkgs; [ hyprpaper ];
     home.file.".config/hypr/hyprpaper.conf".text = ''
       preload=~/Pictures/${cfg.wallpaper}
-      wallpaper=${hypr-cfg.primary_monitor},~/Pictures/${cfg.wallpaper}
-      wallpaper=${hypr-cfg.secondary_monitor},~/Pictures/${cfg.wallpaper}
+      wallpaper=${hypr-cfg.primaryMonitor},~/Pictures/${cfg.wallpaper}
+      wallpaper=${hypr-cfg.secondaryMonitor},~/Pictures/${cfg.wallpaper}
       splash=false
     '';
     wayland.windowManager.hyprland.settings = {

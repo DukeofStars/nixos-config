@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  inputs,
   ...
 }:
 
@@ -14,14 +13,14 @@ in
 
   options.myconfig.hyprland = {
     enable = mkEnableOption "hyprland";
-    primary_monitor = mkOption {
+    primaryMonitor = mkOption {
       type = types.str;
       default = "";
       description = ''
         The code for the primary monitor.
       '';
     };
-    secondary_monitor = mkOption {
+    secondaryMonitor = mkOption {
       type = types.str;
       default = "";
       description = ''
@@ -46,20 +45,20 @@ in
         ];
         workspace = [
           # Primary monitor
-          "1, default:true, monitor:${cfg.primary_monitor}"
-          "2, monitor:${cfg.primary_monitor}"
-          "3, monitor:${cfg.primary_monitor}"
-          "4, monitor:${cfg.primary_monitor}"
-          "5, monitor:${cfg.primary_monitor}"
-          "6, monitor:${cfg.primary_monitor}"
+          "1, default:true, monitor:${cfg.primaryMonitor}"
+          "2, monitor:${cfg.primaryMonitor}"
+          "3, monitor:${cfg.primaryMonitor}"
+          "4, monitor:${cfg.primaryMonitor}"
+          "5, monitor:${cfg.primaryMonitor}"
+          "6, monitor:${cfg.primaryMonitor}"
           # Second monitor
-          "9, monitor:${cfg.secondary_monitor}, on-created-empty:[float] discord"
-          "8, monitor:${cfg.secondary_monitor}, on-created-empty:[float] firefox"
-          "7, monitor:${cfg.secondary_monitor}"
+          "9, monitor:${cfg.secondaryMonitor}, on-created-empty:[float] nvidia-offload discord"
+          "8, monitor:${cfg.secondaryMonitor}, on-created-empty:[float] firefox"
+          "7, monitor:${cfg.secondaryMonitor}"
         ];
         bind =
           [
-            "$mod, F, exec, firefox"
+            "$mod, F, exec, vivaldi"
             "$mod, K, exec, kitty"
             "ALT, SPACE, exec, rofi -show drun"
             ", Print, exec, grimblast copy area"
