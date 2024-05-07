@@ -1,5 +1,8 @@
 { ... }:
 
 {
-  imports = [ ./steam.nix ];
+  imports = [
+    ./steam.nix
+    ./laptop.nix
+  ];
 }

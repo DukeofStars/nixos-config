@@ -14,6 +14,8 @@
       enable = true;
       theme = "sugar-dark";
     };
+
+    laptop.enable = true;
   };
 
   # Use Hyprland Cachix.
