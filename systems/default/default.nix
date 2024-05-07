@@ -46,7 +46,21 @@
 
   networking = {
     hostName = "tristans-laptop"; # Define your hostname.
-    networkmanager.enable = true;
+    # networkmanager.enable = true;
+    wireless = {
+      enable = true;
+      userControlled.enable = true;
+      networks."eduSTAR" = {
+        hidden = true;
+        auth = ''
+          key_mgmt=WPA-EAP
+          eap=PEAP
+          phase2="auth=MSCHAPV2"
+          identity="tdfox1@schools.vic.edu.au"
+          password="MSC@xof3722"
+        '';
+      };
+    };
   };
 
   # Set your time zone.
