@@ -62,6 +62,9 @@
           password="MSC@xof3722"
         '';
       };
+      networks."FoxHub-5G" = {
+        pskRaw = "5360eb5a78406dc010a3a0af8e0be1dfe5fbf4e1fbd156ad5122a9692a4f5240";
+      };
     };
   };
 
