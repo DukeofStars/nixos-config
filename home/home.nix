@@ -71,6 +71,9 @@ in
     # Obviously.
     home-manager
 
+    # Nix language server
+    nil
+
     # Text editor
     kate
 
