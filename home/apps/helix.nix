@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 
@@ -17,7 +16,6 @@ in
   config = mkIf cfg.enable {
     programs.helix = {
       enable = true;
-      settings.theme = "catppuccin_mocha";
     };
   };
 }
