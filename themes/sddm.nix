@@ -52,7 +52,7 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = [ sddm-themes.${cfg.theme} ];
-    services.xserver.displayManager.sddm = {
+    services.displayManager.sddm = {
       theme = cfg.theme;
     };
   };
