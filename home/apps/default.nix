@@ -10,5 +10,6 @@
     ./nushell
     ./thunderbird.nix
     ./vivaldi.nix
+    ./helix.nix
   ];
 }
