@@ -38,6 +38,7 @@ in
       vivaldi = enabled;
       webex = enabled;
       helix = enabled;
+      floorp = enabled;
     };
     hyprland = {
       enable = true;

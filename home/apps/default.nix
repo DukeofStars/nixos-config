@@ -12,5 +12,6 @@
     ./vivaldi.nix
     ./helix.nix
     ./webex.nix
+    ./floorp.nix
   ];
 }
