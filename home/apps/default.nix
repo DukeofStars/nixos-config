@@ -11,5 +11,6 @@
     ./thunderbird.nix
     ./vivaldi.nix
     ./helix.nix
+    ./webex.nix
   ];
 }

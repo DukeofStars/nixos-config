@@ -12,7 +12,7 @@ in
     ./waybar.nix
     ./kitty.nix
     ./helix.nix
-    ];
+  ];
   options.myconfig.themes.catppuccin = {
     enable = mkEnableOption "catppuccin theme";
     flavour = mkOption {

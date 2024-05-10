@@ -36,6 +36,7 @@ in
       starship = enabled;
       thunderbird = enabled;
       vivaldi = enabled;
+      webex = enabled;
       helix = enabled;
     };
     hyprland = {
