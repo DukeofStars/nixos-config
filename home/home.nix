@@ -39,6 +39,7 @@ in
       webex = enabled;
       helix = enabled;
       floorp = enabled;
+      fig = enabled;
     };
     hyprland = {
       enable = true;

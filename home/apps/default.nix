@@ -13,5 +13,6 @@
     ./helix.nix
     ./webex.nix
     ./floorp.nix
+    ./fig.nix
   ];
 }

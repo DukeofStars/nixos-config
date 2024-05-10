@@ -15,8 +15,9 @@
       flake = false;
     };
 
-    dotfiles_fig = {
-      url = "github:DukeofStars/dotfiles_fig";
+    fig.url = "github:DukeofStars/fig";
+    dotfiles = {
+      url = "github:DukeofStars/dotfiles";
       flake = false;
     };
 
