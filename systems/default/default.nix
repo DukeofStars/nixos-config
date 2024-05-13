@@ -193,6 +193,8 @@
         # flat: accelerate at a constant speed. adaptive: pointer acceleration depends on input speed.
         accelProfile = "flat";
       };
+      # layout = "us";
+      # xkbVariant = "colemak";
     };
 
     blueman.enable = true;
@@ -201,7 +203,7 @@
   swapDevices = [
     {
       device = "/swapfile";
-      size = 32 * 1024; # 32GB
+      size = 16 * 1024; # 16GB
     }
   ];
 

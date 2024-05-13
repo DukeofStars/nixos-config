@@ -27,7 +27,7 @@ in
       package = pkgs.capitaine-cursors;
     };
     apps = {
-      rust = enabled;
+      # rust = enabled;
       rofi = enabled;
       waybar = enabled;
       kitty = enabled;
