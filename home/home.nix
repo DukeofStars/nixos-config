@@ -35,7 +35,7 @@ in
       # Implied by 'nushell = enabled', but here for clarity.
       starship = enabled;
       thunderbird = enabled;
-      vivaldi = enabled;
+      # vivaldi = enabled;
       webex = enabled;
       helix = enabled;
       floorp = enabled;
