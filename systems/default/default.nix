@@ -193,8 +193,7 @@
         # flat: accelerate at a constant speed. adaptive: pointer acceleration depends on input speed.
         accelProfile = "flat";
       };
-      # layout = "us";
-      # xkbVariant = "colemak";
+      xkbVariant = "colemak,";
     };
 
     blueman.enable = true;
