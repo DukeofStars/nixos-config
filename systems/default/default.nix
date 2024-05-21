@@ -90,6 +90,8 @@
     };
   };
 
+    # console.keyMap = "colemak/en-latin9";
+
   environment = {
     variables = {
       XCURSOR_SIZE = "24";
@@ -185,15 +187,17 @@
       enable = true;
       enableHidpi = true;
     };
-    xserver = {
-      enable = true;
-      videoDrivers = [ "nvidia" ];
+
       libinput.mouse = {
         accelSpeed = "0";
         # flat: accelerate at a constant speed. adaptive: pointer acceleration depends on input speed.
         accelProfile = "flat";
       };
-      xkbVariant = "colemak,";
+    
+            xserver = {
+      enable = true;
+      videoDrivers = [ "nvidia" ];
+      xkb.variant = "colemak,";
     };
 
     blueman.enable = true;
