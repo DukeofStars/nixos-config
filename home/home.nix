@@ -15,17 +15,17 @@ in
   ];
 
   myconfig = {
-    themes.catppuccin = {
-      enable = true;
-      flavour = "mocha";
-      accent = "blue";
-    };
-    themes.cursor = {
-      enable = true;
-      size = 28;
-      name = "capitaine-cursors";
-      package = pkgs.capitaine-cursors;
-    };
+    # themes.catppuccin = {
+    #   enable = true;
+    #   flavour = "mocha";
+    #   accent = "blue";
+    # };
+    # themes.cursor = {
+    #   enable = true;
+    #   size = 28;
+    #   name = "capitaine-cursors";
+    #   package = pkgs.capitaine-cursors;
+    # };
     apps = {
       # rust = enabled;
       rofi = enabled;

@@ -21,6 +21,8 @@
       flake = false;
     };
 
+    stylix.url = "github:danth/stylix";
+
     rust-overlay.url = "github:oxalica/rust-overlay/";
   };
 

@@ -19,6 +19,7 @@ in
     };
     modules = [
       ./systems/default
+      inputs.stylix.nixosModules.stylix
       home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
@@ -27,6 +28,7 @@ in
         home-manager.extraSpecialArgs = {
           inherit inputs;
         };
+        home-manager.backupFileExtension  = "bak";
       }
       (
         { pkgs, ... }:

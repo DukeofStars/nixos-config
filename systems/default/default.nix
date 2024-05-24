@@ -10,12 +10,17 @@
 
   myconfig = {
     steam.enable = true;
-    themes.sddm = {
-      enable = true;
-      theme = "sugar-dark";
-    };
+    # themes.sddm = {
+    #   enable = true;
+    #   theme = "sugar-dark";
+    # };
 
     laptop.enable = true;
+  };
+
+  stylix = {
+    image = ../../catppuccin_triangle.png;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
   };
 
   # Use Hyprland Cachix.
@@ -94,7 +99,6 @@
 
   environment = {
     variables = {
-      XCURSOR_SIZE = "24";
       XDG_SESSION_TYPE = "wayland";
       WLR_NO_HARDWARE_CURSORS = "1";
     };
