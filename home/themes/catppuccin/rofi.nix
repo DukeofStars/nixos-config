@@ -8,7 +8,7 @@
 with lib;
 let
   cfg = config.myconfig.themes.catppuccin;
-  pkg = pkgs.stdenv.mkDerivation rec {
+  pkg = pkgs.stdenv.mkDerivation {
     pname = "catppuccin-rofi-theme";
     version = "1.0.2";
     dontBuild = true;
@@ -27,7 +27,7 @@ in
 {
   config = mkIf cfg.enable {
     programs.rofi = {
-      theme = "${pkg}/share/rofi/themes/catppuccin-${cfg.flavour}";
+      theme = lib.mkForce "${pkg}/share/rofi/themes/catppuccin-${cfg.flavour}";
       extraConfig = {
         modi = "run,drun,window";
         icon-theme = "Oranchelo";

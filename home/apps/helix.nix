@@ -19,7 +19,7 @@ in
           i = "move_line_up";
           o = "move_char_right";
 
-          u = "insert_mode";  
+          u = "insert_mode";
         };
       };
     };

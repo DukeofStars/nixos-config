@@ -21,6 +21,33 @@
   stylix = {
     image = ../../catppuccin_triangle.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    cursor = {
+
+      size = 32;
+      name = "capitaine-cursors";
+      package = pkgs.capitaine-cursors;
+    };
+    fonts = {
+      serif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
+      };
+
+      sansSerif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans";
+      };
+
+      monospace = {
+        package = (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; });
+        name = "JetBrainsMono Nerd Font Mono";
+      };
+
+      emoji = {
+        package = pkgs.noto-fonts-emoji;
+        name = "Noto Color Emoji";
+      };
+    };
   };
 
   # Use Hyprland Cachix.
@@ -95,7 +122,7 @@
     };
   };
 
-    # console.keyMap = "colemak/en-latin9";
+  # console.keyMap = "colemak/en-latin9";
 
   environment = {
     variables = {
@@ -192,13 +219,13 @@
       enableHidpi = true;
     };
 
-      libinput.mouse = {
-        accelSpeed = "0";
-        # flat: accelerate at a constant speed. adaptive: pointer acceleration depends on input speed.
-        accelProfile = "flat";
-      };
-    
-            xserver = {
+    libinput.mouse = {
+      accelSpeed = "0";
+      # flat: accelerate at a constant speed. adaptive: pointer acceleration depends on input speed.
+      accelProfile = "flat";
+    };
+
+    xserver = {
       enable = true;
       videoDrivers = [ "nvidia" ];
       xkb.variant = "colemak,";

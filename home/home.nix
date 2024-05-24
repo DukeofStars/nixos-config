@@ -15,11 +15,11 @@ in
   ];
 
   myconfig = {
-    # themes.catppuccin = {
-    #   enable = true;
-    #   flavour = "mocha";
-    #   accent = "blue";
-    # };
+    themes.catppuccin = {
+      enable = true;
+      flavour = "mocha";
+      accent = "blue";
+    };
     # themes.cursor = {
     #   enable = true;
     #   size = 28;

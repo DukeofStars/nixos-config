@@ -5,15 +5,15 @@ let
   cfg = config.myconfig.themes.catppuccin;
 in
 {
-  imports = [ ./colours.nix ];
+  imports = [ ];
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland.settings = {
       general = {
         gaps_in = 5;
         gaps_out = 20;
         border_size = 2;
-        "col.active_border" = "\$${cfg.accent}";
-        "col.inactive_border" = "$surface0";
+        # "col.active_border" = "\$${cfg.accent}";
+        # "col.inactive_border" = "$surface0";
 
         layout = "master";
       };
