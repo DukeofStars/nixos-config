@@ -12,6 +12,16 @@ in
   config = mkIf cfg.enable {
     programs.helix = {
       enable = true;
+      settings = {
+        keys.normal = {
+          n = "move_char_left";
+          e = "move_line_down";
+          i = "move_line_up";
+          o = "move_char_right";
+
+          u = "insert_mode";  
+        };
+      };
     };
   };
 }
