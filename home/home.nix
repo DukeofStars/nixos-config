@@ -46,7 +46,7 @@ in
       primaryMonitor = "HDMI-A-1";
       secondaryMonitor = "eDP-1";
       wallpaper = {
-        enable = true;
+        enable = false;
         wallpaper = "sakuratree.png";
       };
     };
