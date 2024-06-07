@@ -46,7 +46,7 @@ in
       primaryMonitor = "HDMI-A-1";
       secondaryMonitor = "eDP-1";
       wallpaper = {
-        enable = false;
+        enable = true;
         wallpaper = "sakuratree.png";
       };
     };
@@ -94,6 +94,10 @@ in
 
     # VSCodium (with easy extension management)
     vscodium-fhs
+
+    # Typst
+    typst
+    typst-lsp
   ];
 
   xdg.mimeApps = {
