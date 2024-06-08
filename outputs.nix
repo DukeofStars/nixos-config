@@ -56,7 +56,7 @@ in
         ({
           users.users.nixos = {
             openssh.authorizedKeys.keys = [
-              "ssh-ed25519 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOGTJACDI9vBzqiwkoyQfCivSKpLVCY5lOKrtVF9Z1PZ"
+              "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOGTJACDI9vBzqiwkoyQfCivSKpLVCY5lOKrtVF9Z1PZ"
             ];
           };
           services.openssh.enable = true;
@@ -67,6 +67,11 @@ in
               pskRaw = "5360eb5a78406dc010a3a0af8e0be1dfe5fbf4e1fbd156ad5122a9692a4f5240";
             };
           };
+          environment.systemPackages = with pkgs; [
+            helix
+            git
+            nano
+          ];
         })
       ];
     };
