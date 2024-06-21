@@ -10,10 +10,6 @@
 
   myconfig = {
     steam.enable = true;
-    # themes.sddm = {
-    #   enable = true;
-    #   theme = "sugar-dark";
-    # };
 
     laptop.enable = true;
   };
@@ -162,6 +158,31 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    wireplumber.extraConfig = {
+      # Source: https://wiki.archlinux.org/title/bluetooth_headset#Disable_PulseAudio_auto_switching_headset_to_HSP
+      "wireplumber.settings" = {
+        ## Whether to use headset profile in the presence of an input stream.
+        "bluetooth.autoswitch-to-headset-profile" = false;
+      };
+      "monitor.bluez.properties" = {
+          ## Enabled roles (default: [ a2dp_sink a2dp_source bap_sink bap_source hfp_hf hfp_ag ])
+          ##
+          ## Currently some headsets (Sony WH-1000XM3) are not working with
+          ## both hsp_ag and hfp_ag enabled, so by default we enable only HFP.
+          ##
+          ## Supported roles: hsp_hs (HSP Headset),
+          ##                  hsp_ag (HSP Audio Gateway),
+          ##                  hfp_hf (HFP Hands-Free),
+          ##                  hfp_ag (HFP Audio Gateway)
+          ##                  a2dp_sink (A2DP Audio Sink)
+          ##                  a2dp_source (A2DP Audio Source)
+          ##                  bap_sink (LE Audio Basic Audio Profile Sink)
+          ##                  bap_source (LE Audio Basic Audio Profile Source)
+          ## --
+          ## Only enable A2DP here and disable HFP. See note at the top as to why.
+          "bluez5.roles" = [ "a2dp_sink" "a2dp_source" ];
+      };
+    };
   };
 
   hardware = {
