@@ -35,6 +35,7 @@ in
         input = {
           touchpad.natural_scroll = true;
           kb_variant = "colemak";
+          accel_profile = "flat";
         };
         monitor = [
           "eDP-1,1920x1080@144,1920x0,1"
