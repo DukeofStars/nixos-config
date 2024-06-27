@@ -40,6 +40,7 @@ in
       helix = enabled;
       floorp = enabled;
       fig = enabled;
+      spotify = enabled;
     };
     hyprland = {
       enable = true;

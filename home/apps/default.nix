@@ -14,5 +14,6 @@
     ./webex.nix
     ./floorp.nix
     ./fig.nix
+    ./spotify.nix
   ];
 }
