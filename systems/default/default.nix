@@ -83,6 +83,7 @@
       };
       efi.canTouchEfiVariables = true;
     };
+    supportedFilesystems = [ "ntfs" ];
   };
 
   networking = {
