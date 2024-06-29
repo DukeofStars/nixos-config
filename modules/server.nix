@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 let
@@ -10,16 +15,37 @@ in
   };
 
   config = mkIf cfg.enable {
-    nix.settings = {
-      # Use Hyprland cache server.
-      substituters = [ "https://hyprland.cachix.org" ];
-      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
-      # Enable experimental features
-      experimental-features = [
-        "nix-command"
-        "flakes"
+    users.users.server = {
+      isNormalUser = true;
+      description = "server";
+      extraGroups = [
+        "networkmanager"
+        "wheel"
       ];
-      warn-dirty = false;
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOGTJACDI9vBzqiwkoyQfCivSKpLVCY5lOKrtVF9Z1PZ"
+      ];
+      shell = pkgs.nushell;
+    };
+
+    nix = {
+      gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 1w";
+      };
+      settings = {
+        # Use Hyprland cache server.
+        substituters = [ "https://hyprland.cachix.org" ];
+        trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+        # Enable experimental features
+        experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
+        warn-dirty = false;
+        auto-optimise-store = true;
+      };
     };
 
     # Bootloader.

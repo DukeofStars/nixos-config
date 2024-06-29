@@ -14,8 +14,6 @@ in
         border_size = 2;
         # "col.active_border" = "\$${cfg.accent}";
         # "col.inactive_border" = "$surface0";
-
-        layout = "master";
       };
       decoration = {
         rounding = 6;
@@ -36,7 +34,7 @@ in
         preserve_split = true;
       };
       master = {
-        new_is_master = true;
+        new_is_master = false;
       };
     };
   };

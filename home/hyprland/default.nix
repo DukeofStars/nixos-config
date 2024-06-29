@@ -32,6 +32,9 @@ in
       systemd.enable = true;
       settings = {
         "$mod" = "SUPER";
+        general = {
+          layout = "master";
+        };
         input = {
           touchpad.natural_scroll = true;
           kb_variant = "colemak";
@@ -51,15 +54,16 @@ in
           "6, monitor:${cfg.primaryMonitor}"
           # Second monitor
           "9, monitor:${cfg.secondaryMonitor}, on-created-empty:[float] nvidia-offload discord"
-          "8, monitor:${cfg.secondaryMonitor}, on-created-empty:[float] firefox"
+          "8, monitor:${cfg.secondaryMonitor}"
           "7, monitor:${cfg.secondaryMonitor}"
         ];
         bind =
           [
-            "$mod, F, exec, vivaldi"
+            "$mod, F, exec, floorp"
             "$mod, K, exec, kitty"
             "ALT, SPACE, exec, rofi -show drun"
             ", Print, exec, grimblast copy area"
+            "$mod, M, layoutmsg, swapwithmaster"
           ]
           ++ (
             # workspaces
