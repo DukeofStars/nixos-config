@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 with lib;
 let
@@ -30,7 +30,6 @@ in
           enable = true;
           devices = [ "nodev" ];
           efiSupport = true;
-          useOSProber = false;
         };
         efi.canTouchEfiVariables = true;
       };
