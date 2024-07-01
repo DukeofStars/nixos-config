@@ -18,6 +18,21 @@
     enable = true;
   };
 
+  xdg = {
+    portal = {
+      enable = true;
+      config = {
+        common = {
+          "org.freedesktop.portal.FileChooser" = "gtk";
+        };
+      };
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-hyprland
+      ];
+    };
+  };
+
   stylix = {
     image = ../../catppuccin_triangle.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
