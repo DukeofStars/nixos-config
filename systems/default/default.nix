@@ -120,6 +120,9 @@
       networks."FoxHub-5G" = {
         pskRaw = "5360eb5a78406dc010a3a0af8e0be1dfe5fbf4e1fbd156ad5122a9692a4f5240";
       };
+      networks."tristans_iphone" = {
+        pskRaw = "309c21878268e8ae7c64b1c3d733ab39dc55f961f8b66da1939ceba1b462451c";
+      };
     };
   };
 
