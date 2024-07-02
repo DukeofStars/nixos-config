@@ -30,7 +30,8 @@ in
     apps = {
       # rust = enabled;
       rofi = enabled;
-      waybar = enabled;
+      # waybar = enabled;
+      ags = enabled;
       kitty = enabled;
       nushell = enabled;
       # Implied by 'nushell = enabled', but here for clarity.

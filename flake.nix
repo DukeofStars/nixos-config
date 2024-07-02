@@ -24,6 +24,11 @@
     stylix.url = "github:danth/stylix";
 
     rust-overlay.url = "github:oxalica/rust-overlay/";
+
+    ags = { 
+      url = "github:Aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

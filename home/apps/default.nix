@@ -15,5 +15,6 @@
     ./floorp.nix
     ./fig.nix
     ./spotify.nix
+    ./ags.nix
   ];
 }
