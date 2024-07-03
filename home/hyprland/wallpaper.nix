@@ -20,13 +20,13 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.hyprpaper = {
-      enable = true;
-      settings = {
-        wallpaper = [
-          ",~/Pictures/${cfg.wallpaper}"
-        ];
-      };
-    };
+    # services.hyprpaper = {
+    #   enable = true;
+    #   settings = {
+    #     wallpaper = [
+    #       ",~/Pictures/${cfg.wallpaper}"
+    #     ];
+    #   };
+    # };
   };
 }
