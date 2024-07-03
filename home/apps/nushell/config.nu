@@ -760,3 +760,6 @@ $env.config = {
 
 # Starship
 use ~/.cache/starship/init.nu
+
+# zoxide
+source ~/.cache/zoxide/init.nu

@@ -77,6 +77,9 @@ in
     # Obviously.
     home-manager
 
+    # Zoxide (https://github.com/ajeetdsouza/zoxide)
+    zoxide
+
     # Nix language server
     nil
 
