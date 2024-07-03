@@ -19,7 +19,7 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "catppuccin";
       repo = "rofi";
-      sha256 = "sha256-DNorfyl3C4RBclF2KDgwvQQwixpTwSRu7fIvihPN8JY=";
+      sha256 = "sha256-zA8Zum19pDTgn0KdQ0gD2kqCOXK4OCHBidFpGwrJOqg=";
       rev = "main";
     };
   };

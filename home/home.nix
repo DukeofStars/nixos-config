@@ -50,7 +50,7 @@ in
       secondaryMonitor = "eDP-1";
       wallpaper = {
         enable = true;
-        wallpaper = "sakuratree.png";
+        wallpaper = "Bridge.jpg";
       };
     };
     services = {

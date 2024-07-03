@@ -1,13 +1,11 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 
 with lib;
 let
-  hypr-cfg = config.myconfig.hyprland;
   cfg = config.myconfig.hyprland.wallpaper;
 in
 {
@@ -22,18 +20,13 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [ hyprpaper ];
-    home.file.".config/hypr/hyprpaper.conf".text = ''
-      preload=~/Pictures/${cfg.wallpaper}
-      wallpaper=${hypr-cfg.primaryMonitor},~/Pictures/${cfg.wallpaper}
-      wallpaper=${hypr-cfg.secondaryMonitor},~/Pictures/${cfg.wallpaper}
-      splash=false
-    '';
-    wayland.windowManager.hyprland.settings = {
-      exec-once = [
-        # The wallpaper engine
-        "hyprpaper"
-      ];
+    services.hyprpaper = {
+      enable = true;
+      settings = {
+        wallpaper = [
+          ",~/Pictures/${cfg.wallpaper}"
+        ];
+      };
     };
   };
 }

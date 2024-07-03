@@ -37,7 +37,6 @@
     image = ../../catppuccin_triangle.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     cursor = {
-
       size = 32;
       name = "capitaine-cursors";
       package = pkgs.capitaine-cursors;
@@ -225,10 +224,9 @@
         };
       };
     };
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
+      enable32Bit = true;
     };
     nvidia = {
       modesetting.enable = true;
