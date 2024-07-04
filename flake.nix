@@ -25,7 +25,7 @@
 
     rust-overlay.url = "github:oxalica/rust-overlay/";
 
-    ags = { 
+    ags = {
       url = "github:Aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };

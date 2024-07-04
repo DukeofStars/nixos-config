@@ -21,23 +21,14 @@ in
       flavour = "mocha";
       accent = "blue";
     };
-    # themes.cursor = {
-    #   enable = true;
-    #   size = 28;
-    #   name = "capitaine-cursors";
-    #   package = pkgs.capitaine-cursors;
-    # };
     apps = {
-      # rust = enabled;
       rofi = enabled;
-      # waybar = enabled;
       ags = enabled;
       kitty = enabled;
       nushell = enabled;
       # Implied by 'nushell = enabled', but here for clarity.
       starship = enabled;
       thunderbird = enabled;
-      # vivaldi = enabled;
       webex = enabled;
       helix = enabled;
       floorp = enabled;
@@ -53,9 +44,7 @@ in
         wallpaper = "Bridge.jpg";
       };
     };
-    services = {
-      dunst = enabled;
-    };
+    services = { };
   };
 
   # Home Manager needs a bit of information about you and the
