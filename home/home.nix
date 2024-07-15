@@ -72,9 +72,6 @@ in
     # Nix language server
     nil
 
-    # Text editor
-    kate
-
     # Discord, with OpenAsar
     # (discord.override { withOpenASAR = true; })
 

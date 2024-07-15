@@ -164,11 +164,9 @@
     };
     systemPackages = with pkgs; [
       git
-      nano
-      networkmanagerapplet
       rofi
 
-      gnome.nautilus
+      nautilus
 
       libsForQt5.qt5.qtgraphicaleffects
 
