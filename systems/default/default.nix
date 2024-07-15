@@ -122,6 +122,9 @@
       networks."tristans_iphone" = {
         pskRaw = "309c21878268e8ae7c64b1c3d733ab39dc55f961f8b66da1939ceba1b462451c";
       };
+      networks."OPTUS_8974AE_MESH" = {
+        pskRaw = "9f24875fa8e6f27b743dc67d2c42eec34dfa4c913ac529dfdafdb6f471dd7b26";
+      };
     };
   };
 
@@ -224,15 +227,15 @@
         };
       };
     };
-    # graphics = {
-    #   enable = true;
-    #   enable32Bit = true;
-    # };
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
+      enable32Bit = true;
     };
+    # opengl = {
+    #   enable = true;
+    #   driSupport = true;
+    #   driSupport32Bit = true;
+    # };
     nvidia = {
       modesetting.enable = true;
       # For hybrid graphics

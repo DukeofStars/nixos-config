@@ -76,7 +76,7 @@ in
     kate
 
     # Discord, with OpenAsar
-    (discord.override { withOpenASAR = true; })
+    # (discord.override { withOpenASAR = true; })
 
     # Of course.
     neofetch

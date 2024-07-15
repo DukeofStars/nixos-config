@@ -1,7 +1,7 @@
 {
   inputs,
   home-manager,
-  rust-overlay,
+  # rust-overlay,
   nixpkgs,
   ...
 }:
@@ -34,7 +34,7 @@ in
         (
           { pkgs, ... }:
           {
-            nixpkgs.overlays = [ rust-overlay.overlays.default ];
+            # nixpkgs.overlays = [ rust-overlay.overlays.default ];
           }
         )
       ];
