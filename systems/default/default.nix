@@ -34,6 +34,7 @@
   };
 
   stylix = {
+    enable = true;
     image = ../../catppuccin_triangle.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     cursor = {
