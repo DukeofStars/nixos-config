@@ -5,7 +5,10 @@ let
   cfg = config.myconfig.hyprland;
 in
 {
-  imports = [ ./wallpaper.nix ];
+  imports = [
+    ./wallpaper.nix
+    ./decoration.nix
+  ];
 
   options.myconfig.hyprland = {
     enable = mkEnableOption "hyprland";

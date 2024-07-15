@@ -6,8 +6,9 @@
 }:
 
 with lib;
+with types;
 let
-  cfg = config.myconfig.themes.catppuccin;
+  cfg = config.myconfig.apps.rofi.themes.catppuccin;
   pkg = pkgs.stdenv.mkDerivation {
     pname = "catppuccin-rofi-theme";
     version = "1.0.2";
@@ -25,6 +26,12 @@ let
   };
 in
 {
+  options.myconfig.apps.rofi.themes.catppuccin = {
+    enable = mkEnableOption "catppuccin-rofi-theme";
+    flavour = mkOption {
+      type = uniq str;
+    };
+  };
   config = mkIf cfg.enable {
     programs.rofi = {
       theme = lib.mkForce "${pkg}/share/rofi/themes/catppuccin-${cfg.flavour}";

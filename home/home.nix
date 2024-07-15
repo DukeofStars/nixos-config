@@ -11,18 +11,18 @@ in
     ./apps
     ./hyprland
     ./services
-    ./themes
     ./fonts.nix
   ];
 
   myconfig = {
-    themes.catppuccin = {
-      enable = true;
-      flavour = "mocha";
-      accent = "blue";
-    };
     apps = {
-      rofi = enabled;
+      rofi = {
+        enable = true;
+        themes.catppuccin = {
+          enable = true;
+          flavour = "mocha";
+        };
+      };
       ags = enabled;
       kitty = enabled;
       nushell = enabled;
@@ -73,7 +73,7 @@ in
     nil
 
     # Discord, with OpenAsar
-    # (discord.override { withOpenASAR = true; })
+    (discord.override { withOpenASAR = true; })
 
     # Of course.
     neofetch

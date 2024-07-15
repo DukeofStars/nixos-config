@@ -3,7 +3,7 @@
   imports = [
     ./arc-browser.nix
     ./rust
-    ./rofi.nix
+    ./rofi
     ./waybar.nix
     ./starship.nix
     ./kitty.nix
