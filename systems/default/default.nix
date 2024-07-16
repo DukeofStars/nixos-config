@@ -35,7 +35,7 @@
 
   stylix = {
     enable = true;
-    image = ../../Wallpapers/gruvbox/Jellyfish-Astronaut-Soft.png;
+    image = ../../.wallpapers/gruvbox/Jellyfish-Astronaut-Soft.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-soft.yaml";
     cursor = {
       size = 32;

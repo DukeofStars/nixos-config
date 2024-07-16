@@ -40,7 +40,7 @@ in
       secondaryMonitor = "eDP-1";
       wallpaper = {
         enable = true;
-        path = ../Wallpapers/gruvbox/Jellyfish-Astronaut-Soft.png;
+        path = ../.wallpapers/gruvbox/Jellyfish-Astronaut-Soft.png;
       };
     };
     services = { };
