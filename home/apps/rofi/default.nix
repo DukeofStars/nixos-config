@@ -20,6 +20,7 @@ in
     programs.rofi = {
       enable = true;
       terminal = "kitty";
+      package = pkgs.rofi-wayland;
     };
   };
 }

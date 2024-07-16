@@ -62,9 +62,9 @@ in
         ];
         bind =
           [
-            "$mod, F, exec, floorp"
-            "$mod, K, exec, kitty"
-            "ALT, SPACE, exec, rofi -show drun"
+            (mkIf config.myconfig.apps.floorp.enable "$mod, F, exec, floorp")
+            (mkIf config.myconfig.apps.kitty.enable "$mod, K, exec, kitty")
+            (mkIf config.myconfig.apps.rofi.enable "ALT, SPACE, exec, rofi -show drun")
             ", Print, exec, grimblast copy area"
             "$mod, M, layoutmsg, swapwithmaster"
           ]
