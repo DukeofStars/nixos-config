@@ -10,9 +10,7 @@ let
   cfg = config.myconfig.apps.rofi;
 in
 {
-  imports = [
-    ./themes/catppuccin.nix
-  ];
+  imports = [ ./themes/catppuccin.nix ];
 
   options.myconfig.apps.rofi = {
     enable = mkEnableOption "rofi";

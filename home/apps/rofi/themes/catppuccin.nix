@@ -28,9 +28,7 @@ in
 {
   options.myconfig.apps.rofi.themes.catppuccin = {
     enable = mkEnableOption "catppuccin-rofi-theme";
-    flavour = mkOption {
-      type = uniq str;
-    };
+    flavour = mkOption { type = uniq str; };
   };
   config = mkIf cfg.enable {
     programs.rofi = {

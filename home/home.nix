@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
 let
-  defaultBrowser = "floorp.desktop";
   enabled = {
     enable = true;
   };
@@ -90,20 +89,26 @@ in
     # Typst
     typst
     typst-lsp
+
+    zed-editor
   ];
 
   xdg.mimeApps = {
     enable = true;
-    defaultApplications = {
-      "image/png" = [ "gwenview.desktop" ];
-      "image/jpeg" = [ "gwenview.desktop" ];
-      "inode/directory" = [ "nautilus.desktop" ];
-      "text/html" = defaultBrowser;
-      "x-scheme-handler/http" = defaultBrowser;
-      "x-scheme-handler/https" = defaultBrowser;
-      "x-scheme-handler/about" = defaultBrowser;
-      "x-scheme-handler/unknown" = defaultBrowser;
-    };
+    defaultApplications =
+      let
+        defaultBrowser = "floorp.desktop";
+      in
+      {
+        "image/png" = [ "gwenview.desktop" ];
+        "image/jpeg" = [ "gwenview.desktop" ];
+        "inode/directory" = [ "nautilus.desktop" ];
+        "text/html" = defaultBrowser;
+        "x-scheme-handler/http" = defaultBrowser;
+        "x-scheme-handler/https" = defaultBrowser;
+        "x-scheme-handler/about" = defaultBrowser;
+        "x-scheme-handler/unknown" = defaultBrowser;
+      };
   };
 
   programs = {
