@@ -230,11 +230,6 @@
       enable = true;
       enable32Bit = true;
     };
-    # opengl = {
-    #   enable = true;
-    #   driSupport = true;
-    #   driSupport32Bit = true;
-    # };
     nvidia = {
       modesetting.enable = true;
       # For hybrid graphics
@@ -275,11 +270,6 @@
     # Enable CUPS to print documents.
     printing.enable = true;
 
-    displayManager.sddm = {
-      enable = true;
-      enableHidpi = true;
-    };
-
     libinput.mouse = {
       accelSpeed = "0";
       # flat: accelerate at a constant speed. adaptive: pointer acceleration depends on input speed.
@@ -289,7 +279,14 @@
     xserver = {
       enable = true;
       videoDrivers = [ "nvidia" ];
-      xkb.variant = "colemak,";
+      xkb = {
+        layout = "us";
+        variant = "colemak";
+      };
+      displayManager.lightdm = {
+        enable = true;
+        greeters.gtk.enable = true;
+      };
     };
 
     blueman.enable = true;
