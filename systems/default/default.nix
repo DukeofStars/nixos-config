@@ -6,6 +6,7 @@
     ./hardware-configuration.nix
     ../../themes
     ../../modules
+    ./dm.nix
   ];
 
   myconfig = {
@@ -282,10 +283,6 @@
       xkb = {
         layout = "us";
         variant = "colemak";
-      };
-      displayManager.lightdm = {
-        enable = true;
-        greeters.gtk.enable = true;
       };
     };
 
