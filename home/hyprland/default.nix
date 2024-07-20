@@ -42,6 +42,7 @@ in
           touchpad.natural_scroll = true;
           kb_variant = "colemak";
           accel_profile = "flat";
+          scroll_factor = 0.7;
         };
         monitor = [
           "eDP-1,1920x1080@144,1920x0,1"

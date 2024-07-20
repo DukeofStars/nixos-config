@@ -119,5 +119,11 @@ in
     neovim = enabled;
   };
 
-  gtk.enable = true;
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Papirus";
+      package = pkgs.papirus-icon-theme;
+    };
+  };
 }
