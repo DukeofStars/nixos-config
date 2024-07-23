@@ -83,14 +83,9 @@ in
     # For viewing images.
     gwenview
 
-    # VSCodium (with easy extension management)
-    vscodium-fhs
-
     # Typst
     typst
     typst-lsp
-
-    zed-editor
   ];
 
   xdg.mimeApps = {
