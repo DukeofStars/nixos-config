@@ -13,10 +13,21 @@
     '';
     services.greetd = {
       enable = true;
-      settings.default_session = {
-        command = "Hyprland --config /etc/greetd/hyprland.conf";
+      settings = {
+        initial_session = {
+          command = "Hyprland";
+          user = "foxtristan";
+        };
+        default_session = {
+          command = "Hyprland --config /etc/greetd/hyprland.conf";
+          user = "greeter";
+        };
+        terminal = {
+          vt = 1;
+        };
       };
     };
+    security.pam.services.hyprlock = { };
     programs.regreet = {
       enable = true;
     };
