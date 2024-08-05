@@ -19,6 +19,7 @@ in
     services.hyprpaper = {
       enable = true;
       settings = {
+        preload = [ "${cfg.path}" ];
         wallpaper = [ ",${cfg.path}" ];
       };
     };

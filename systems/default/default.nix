@@ -36,8 +36,8 @@
 
   stylix = {
     enable = true;
-    image = ../../.wallpapers/gruvbox/Jellyfish-Astronaut-Soft.png;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-soft.yaml";
+    image = ../../.wallpapers/catppuccin/prism.png;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     cursor = {
       size = 32;
       name = "capitaine-cursors";
