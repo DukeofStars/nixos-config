@@ -90,7 +90,7 @@
   # Bootloader.
   boot = {
     resumeDevice = "/dev/disk/by-uuid/09ddeb73-7e19-4f52-a74c-25b21a1163c4";
-    kernelParams = [ "resume_offset=23271424" ];
+    kernelParams = [ "resume_offset=23271424" "mem_sleep_default=deep" ];
     loader = {
       #systemd-boot.enable = true;
       grub = {
@@ -267,7 +267,18 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  systemd = {
+    sleep.extraConfig = ''
+      HibernateDelaySec=3m
+      SuspendState=mem
+    '';
+  };
+
   services = {
+    logind = {
+      lidSwitch = "suspend-then-hibernate";
+    };
+  
     # Enable Nautilus File Manager (https://nixos.wiki/wiki/Nautilus)
     gvfs.enable = true;
 
