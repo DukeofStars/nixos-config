@@ -89,6 +89,8 @@
 
   # Bootloader.
   boot = {
+    resumeDevice = "/dev/disk/by-uuid/09ddeb73-7e19-4f52-a74c-25b21a1163c4";
+    kernelParams = [ "resume_offset=23271424" ];
     loader = {
       #systemd-boot.enable = true;
       grub = {
@@ -173,6 +175,10 @@
 
       protonup
     ];
+  };
+
+  security = {
+    protectKernelImage = false;
   };
 
   programs.hyprland.enable = true;
