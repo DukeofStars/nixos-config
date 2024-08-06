@@ -36,8 +36,8 @@
 
   stylix = {
     enable = true;
-    image = ../../.wallpapers/catppuccin/prism.png;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    image = ../../.wallpapers/catppuccin/wallpapers-oxkt.jpg;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
     cursor = {
       size = 32;
       name = "capitaine-cursors";
