@@ -62,6 +62,8 @@ in
   home.stateVersion = "23.11";
 
   home.packages = with pkgs; [
+    libreoffice-qt6
+  
     # Obviously.
     home-manager
 

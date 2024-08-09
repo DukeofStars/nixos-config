@@ -9,6 +9,8 @@
     ./dm.nix
   ];
 
+boot.blacklistedKernelModules = [ "snd_pcsp" ];
+
   myconfig = {
     steam.enable = true;
 
@@ -184,8 +186,8 @@
   programs.hyprland.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
-  sound.mediaKeys.enable = true;
+  # sound.enable = true;
+  # sound.mediaKeys.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
