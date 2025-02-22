@@ -16,5 +16,6 @@
     ./fig.nix
     ./spotify.nix
     ./ags.nix
+    ./zen.nix
   ];
 }

@@ -31,6 +31,7 @@ in
       webex = enabled;
       helix = enabled;
       floorp = enabled;
+      zen = enabled;
       fig = enabled;
       spotify = enabled;
     };
