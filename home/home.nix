@@ -75,7 +75,7 @@ in
     nil
 
     # Discord, with OpenAsar
-    (discord.override { withOpenASAR = true; })
+    discord
 
     # Of course.
     neofetch

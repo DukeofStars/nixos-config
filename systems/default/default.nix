@@ -9,7 +9,7 @@
     ./dm.nix
   ];
 
-boot.blacklistedKernelModules = [ "snd_pcsp" ];
+  boot.blacklistedKernelModules = [ "snd_pcsp" ];
 
   myconfig = {
     steam.enable = true;
@@ -111,25 +111,27 @@ boot.blacklistedKernelModules = [ "snd_pcsp" ];
     # networkmanager.enable = true;
     wireless = {
       enable = true;
-      userControlled.enable = true;
-      networks."eduSTAR" = {
-        hidden = true;
-        auth = ''
-          key_mgmt=WPA-EAP
-          eap=PEAP
-          phase2="auth=MSCHAPV2"
-          identity="tdfox1@schools.vic.edu.au"
-          password="MSC@xof3722"
-        '';
+      userControlled = {
+        enable = true;
       };
-      networks."FoxHub-5G" = {
-        pskRaw = "5360eb5a78406dc010a3a0af8e0be1dfe5fbf4e1fbd156ad5122a9692a4f5240";
-      };
-      networks."tristans_iphone" = {
-        pskRaw = "309c21878268e8ae7c64b1c3d733ab39dc55f961f8b66da1939ceba1b462451c";
-      };
-      networks."OPTUS_8974AE_MESH" = {
-        pskRaw = "9f24875fa8e6f27b743dc67d2c42eec34dfa4c913ac529dfdafdb6f471dd7b26";
+      environmentFile = "/home/foxtristan/.secrets/wireless.env";
+      networks = {
+        eduroam = {
+          auth = ''
+            key_mgmt=WPA-EAP
+            eap=PEAP
+            identity="fox0002@jmss.vic.edu.au"
+            password="@PSK_JMSS@"
+            phase1="peaplabel=0"
+            phase2="auth=MSCHAPV2"
+          '';
+        };
+        "FoxHub-5G" = {
+          psk = "@PSK_HOME1";
+        };
+        "OPTUS_8974AE_MESH" = {
+          psk = "@PSK_HOME2";
+        };
       };
     };
   };
@@ -176,6 +178,8 @@ boot.blacklistedKernelModules = [ "snd_pcsp" ];
       libsForQt5.qt5.qtgraphicaleffects
 
       protonup
+
+      pavucontrol
     ];
   };
 
@@ -189,7 +193,7 @@ boot.blacklistedKernelModules = [ "snd_pcsp" ];
   # sound.enable = true;
   # sound.mediaKeys.enable = true;
   hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
+  # security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -259,6 +263,7 @@ boot.blacklistedKernelModules = [ "snd_pcsp" ];
     isNormalUser = true;
     description = "Tristan Fox";
     extraGroups = [
+      "network"
       "networkmanager"
       "wheel"
       "docker"
