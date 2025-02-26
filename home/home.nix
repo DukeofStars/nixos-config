@@ -22,7 +22,8 @@ in
           flavour = "mocha";
         };
       };
-      ags = enabled;
+      # ags = enabled;
+      waybar = enabled;
       kitty = enabled;
       nushell = enabled;
       # Implied by 'nushell = enabled', but here for clarity.
@@ -30,7 +31,7 @@ in
       thunderbird = enabled;
       webex = enabled;
       helix = enabled;
-      floorp = enabled;
+      # floorp = enabled;
       zen = enabled;
       fig = enabled;
       spotify = enabled;
@@ -64,7 +65,7 @@ in
 
   home.packages = with pkgs; [
     libreoffice-qt6
-  
+
     # Obviously.
     home-manager
 
@@ -95,7 +96,7 @@ in
     enable = true;
     defaultApplications =
       let
-        defaultBrowser = "floorp.desktop";
+        defaultBrowser = "zen.desktop";
       in
       {
         "image/png" = [ "gwenview.desktop" ];

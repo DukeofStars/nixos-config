@@ -16,9 +16,5 @@ in
     enable = mkEnableOption "zen";
   };
 
-  config = mkIf cfg.enable {
-    home.packages = [
-       inputs.zen-browser.packages.x86_64-linux.specific
-    ];
-  };
+  config = mkIf cfg.enable { home.packages = [ inputs.zen-browser.packages.x86_64-linux.specific ]; };
 }
